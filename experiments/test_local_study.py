@@ -10,6 +10,8 @@ from answer_format import extract_extended
 class StudyChecks(unittest.TestCase):
     def test_format_extension_accepts_explicit_conclusion_not_intermediate_numbers(self):
         self.assertEqual(extract_extended("Reasoning: 196=4*49.\n\nSo there are 9 positive divisors.")[0], "9")
+        self.assertEqual(extract_extended("So there are 9 positive whole-number divisors of 196.")[0], "9")
+        self.assertEqual(extract_extended("So there are 9 red balls and 5 blue balls.")[0], "")
         self.assertEqual(extract_extended("Intermediate value 9; further work needed.")[0], "")
         self.assertEqual(extract_extended("Therefore 196 has 9 divisors.")[0], "")
         self.assertEqual(extract_extended("Final answer: -2.5")[0], "-2.5")

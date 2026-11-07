@@ -57,7 +57,7 @@ followed by the author's `evaluate_math_qa` numeric correctness checker.
 
 Modified extractor: retain any baseline answer. Otherwise accept a numeric
 boxed answer or a final paragraph that starts with an explicit conclusion cue
-and contains exactly one numeric candidate. Ambiguous or unsupported formats
+and contains exactly one numeric candidate. An explicit final count statement also permits an object restatement such as "divisors of 196". Ambiguous or unsupported formats
 remain unparsed. The function receives no reference answer and calls no LLM.
 This is a conservative format extension, not a general semantic evaluator.
 
@@ -83,6 +83,7 @@ From the assignment workspace:
 ```bash
 work/.venv/bin/python outputs/lits-reproduction/experiments/test_local_study.py
 work/.venv/bin/python outputs/lits-reproduction/experiments/run_study.py --limit 10 --seeds 42 43 44 --name main
+work/.venv/bin/python outputs/lits-reproduction/experiments/finalize_study.py outputs/lits-reproduction/experiments/results/main
 ```
 
 Each study name must be new. For a fresh machine, create a Python 3.13 virtual
@@ -99,7 +100,7 @@ Every run saves `command.json`, resolved `config.json`, trees, terminal nodes,
 usage logs and `offline_evaluation.json`. Study status is recorded as running,
 complete, interrupted or failed. `results_summary.csv` reports means and sample
 standard deviations only from completed runs, with completion status visible.
-`per_question_results.csv` preserves all expected questions. Never present a
+`per_question_results.csv` preserves all expected questions. After generation, `finalize_study.py` re-scores all saved outputs with the frozen extractor and exports `changed_predictions_for_review.json`. Review these cases before final interpretation. Never present a
 running study as a final result. Runtime output is ignored by Git during work;
 commit selected completed evidence before publishing the submission repository.
 
