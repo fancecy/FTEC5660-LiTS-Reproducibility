@@ -1,6 +1,7 @@
-models/
-hf/
+models
+hf
 mpl-cache/
 __pycache__/
 *.pid
+*.lock
 results/
