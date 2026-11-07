@@ -1,6 +1,7 @@
 """Run a fixed, budget-limited LiTS study and score saved outputs offline.
 
-One experimental variable: MCTS iteration budget (2 versus 4).
+The formal modification changes answer extraction on identical saved outputs.
+Search-budget comparisons remain exploratory.
 This is a partial reproduction, not a direct replication of paper Table 6.
 """
 import argparse
