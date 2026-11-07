@@ -1,0 +1,99 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "How many positive whole-number divisors does 196 have?",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "0_1794041245",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      0.0,
+      0.08333333333333333
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 2,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "To find the number of positive whole-number divisors of 196, we start by determining its prime factorization.\n\nStep 2: Continue with the prime factorization process until all factors are prime numbers."
+      }
+    ],
+    "action": "To find the number of positive whole-number divisors of 196, we start by determining its prime factorization.\n\nStep 2: Continue with the prime factorization process until all factors are prime numbers.",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.25,
+    "trajectory_key": {
+      "search_id": "0_1794041245",
+      "indices": [
+        1
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "To find the number of positive whole-number divisors of 196, we start by determining its prime factorization.\n\nStep 2: Continue with the prime factorization process until all factors are prime numbers."
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": true,
+    "cum_rewards": [
+      0.625
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  },
+  {
+    "id": 4,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "To find the number of positive whole-number divisors of 196, we start by determining its prime factorization.\n\nStep 2: Continue with the prime factorization process until all factors are prime numbers."
+      },
+      {
+        "__type__": "ThoughtStep",
+        "action": "Factorize 196 into its prime factors. \n\n\\( 196 = 2^2 \\times 7^2 \\)"
+      }
+    ],
+    "action": "Factorize 196 into its prime factors. \n\n\\( 196 = 2^2 \\times 7^2 \\)",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 1.0,
+    "trajectory_key": {
+      "search_id": "0_1794041245",
+      "indices": [
+        1,
+        1
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Factorize 196 into its prime factors. \n\n\\( 196 = 2^2 \\times 7^2 \\)"
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      1.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

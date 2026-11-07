@@ -1,0 +1,67 @@
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-11-07 16:46:56] [INFO] [root] Command: lits-search --dataset math500 --include local_math --policy-model Qwen/Qwen2.5-1.5B-Instruct --policy concat --transition concat --reward generative --search-arg device=cpu n_iters=2 n_actions=2 max_steps=3 roll_out_steps=1 terminate_constraints=["step_signal"] terminate_on_first_solution=false force_terminating_on_depth_limit=true enable_think_policy=false enable_think_eval=false runtime_limit_before_iter=300 --component-arg max_new_tokens=192 max_length=4096 think_for_correctness=false think_for_usefulness=false n_for_correctness=1 n_for_usefulness=1 --var limit=1 -o work/results/pilot_search
+[2026-11-07 16:46:56] [INFO] [root] Working directory: /Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility
+Var: limit=1
+Imported custom modules: ['local_math']
+Search: device=cpu
+Search: n_iters=2
+Search: n_actions=2
+Search: max_steps=3
+Search: roll_out_steps=1
+Search: terminate_constraints=['"step_signal"']
+Search: terminate_on_first_solution=False
+Search: force_terminating_on_depth_limit=True
+Search: enable_think_policy=False
+Search: enable_think_eval=False
+Search: runtime_limit_before_iter=300
+Component: max_new_tokens=192
+Component: max_length=4096
+Component: think_for_correctness=False
+Component: think_for_usefulness=False
+Component: n_for_correctness=1
+Component: n_for_usefulness=1
+Current working directory: /Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility
+Log/config file/results are saved to: work/results/pilot_search
+Traceback (most recent call last):
+  File "/Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility/work/run_local.py", line 64, in <module>
+    runpy.run_module("lits.cli.search" if args.mode == "search" else "lits.cli.eval_search",
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     run_name="__main__")
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 229, in run_module
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility/work/lits-llm/lits/cli/search.py", line 640, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility/work/lits-llm/lits/cli/search.py", line 518, in main
+    world_model, policy, evaluator = create_components(
+                                     ~~~~~~~~~~~~~~~~~^
+        task_type=task_type,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        config=config
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility/work/lits-llm/lits/components/factory.py", line 500, in create_components
+    return create_components_language_grounded(
+        base_model=base_model, eval_base_model=eval_base_model, task_name=task_name,
+    ...<4 lines>...
+        reward_override=reward_override,
+    )
+  File "/Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility/work/lits-llm/lits/components/factory.py", line 100, in create_components_language_grounded
+    world_model = TransitionCls.from_config(
+        base_model=terminal_model if terminal_model else base_model,
+        search_args=search_args, component_args=component_args,
+        task_name=task_name, task_prompt_spec=None, usr_prompt_spec=None,
+    )
+  File "/Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility/work/lits-llm/lits/components/transition/concat.py", line 68, in from_config
+    return cls(
+        base_model=base_model,
+    ...<4 lines>...
+        max_length=component_args.get('max_length', 32768),
+    )
+  File "/Users/margaery/Documents/Codex/2026-11-07/files-mentioned-by-the-user-reproducibility/work/lits-llm/lits/components/transition/concat.py", line 84, in __init__
+    assert constraint in ['step_signal', 'binary_sampling', 'reward_threshold', 'verify'], f"Unknown terminate constraint: {constraint}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Unknown terminate constraint: "step_signal"

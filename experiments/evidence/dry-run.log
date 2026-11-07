@@ -1,0 +1,15 @@
+Imported custom modules: ['local_math']
+
+=== Dry Run Mode ===
+Dataset: math500
+Task type: language_grounded
+Search algorithm: mcts
+Components: policy=ConcatPolicy, transition=ConcatTransition, reward=GenerativePRM
+Dataset size: 316
+
+First element:
+{
+  "question": "How many positive whole-number divisors does 196 have?",
+  "answer": "9",
+  "id": "test/number_theory/572.json"
+}

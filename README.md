@@ -1,3 +1,5 @@
+> **FTEC5660 local reproduction:** See [experiments/README.md](experiments/README.md) for the pinned CPU study, exact deviations, evaluation rules, and current submission status. Exploratory pilots are not final benchmark results.
+
 # LiTS — Language Inference via Tree Search
 
 A modular Python framework for LLM reasoning and planning with tree search (e.g., MCTS, BFS and other custom search algorithms) and chain reasoning (e.g.,ReAct).
