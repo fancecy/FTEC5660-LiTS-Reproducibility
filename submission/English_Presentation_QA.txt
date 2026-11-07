@@ -1,0 +1,73 @@
+ENGLISH PRESENTATION QUESTIONS AND ANSWERS
+
+Preparation notes for the 12-slide presentation
+
+1. Why is this an agentic system?
+LiTS runs multi-step search. The policy proposes candidate reasoning actions,
+the transition updates the state, and a reward model scores candidates. MCTS
+chooses which branches to explore. The saved trees and model-call logs show
+these steps. The selected workflow is more than a single prompt and answer.
+
+2. What exactly did you reproduce?
+I reproduced a runnable, pinned math-search workflow and evaluated answers
+from its saved terminal outputs. This is a resource-limited partial reproduction.
+The paper's 37% ReST-MCTS result uses a different model, sample and evaluation
+setup, so I do not claim a direct replication of that number.
+
+3. What is your single measured modification?
+I extended the accepted answer formats in the numeric extractor. Both scorers
+receive the exact same saved generations and use the same terminal-voting rule
+and correctness checker. The CPU configuration fix supports both conditions.
+It is separate from the measured intervention.
+
+4. Did the model become better at reasoning?
+The experiment does not establish that. Mean extracted-answer accuracy changes
+from 16.7% to 30.0%, but the model
+outputs stay unchanged. The change concerns which answers the evaluator can
+recognize. A recovered wrong answer still receives an incorrect score.
+
+5. How did you prevent reference-answer leakage?
+The extraction function receives terminal text, not a reference answer. The
+numeric checker uses the reference only after a prediction has been selected.
+The subset follows fixed source order and includes every planned question in
+the denominator. Source inspection also confirms that the math transition
+starts from an empty state and does not pass the reference to generation.
+
+6. Did you overfit the pilot example?
+The pilot helped develop the rule and also appears as question 0 in the formal
+subset. I disclose this overlap. Excluding it leaves nine unique questions and
+27 executions, with 5 baseline correct and
+7 modified correct. This sensitivity check
+does not replace a larger independent test set.
+
+7. Why does your evaluator differ from the current upstream CLI?
+The current CLI votes through native tool calls, which the local Hugging Face
+wrapper does not support. I use deterministic plurality with the authors'
+numeric checker in both conditions. The report makes this adapter explicit.
+The extraction-helper baseline should not be confused with the paper's full
+voting evaluator.
+
+8. What do the three seeds tell you?
+They show run-to-run variation under the fixed local setup. They repeat the
+same ten questions, so there are ten unique tasks, not thirty independent
+questions. I report sample standard deviation across the three run accuracies
+and avoid a claim of benchmark-wide statistical significance.
+
+9. What failed?
+One saved cube answer is 8 even though a sum of three consecutive integers must
+be divisible by three. Another geometry answer stops at 56 degrees while the
+reference is 28. These are answer errors that parsing cannot solve. Other
+failures include empty terminals or incomplete output at the token limit.
+
+10. What was the cost and what would you do next?
+All model inference ran locally with no paid model API. The three runs logged
+392 calls and 20,357 output tokens.
+Re-scoring adds no model-generation calls. I would next test a larger independent
+sample, then study structured terminal outputs or the full upstream voter as
+a separate controlled change.
+
+Recording reminder
+Use your own English explanation in a Zoom recording of at most 15 minutes.
+The slide notes support a talk of roughly 10 to 12 minutes. Keep the recording
+link accessible to your instructor. The report, slides and GitHub release do
+not replace that personal recording link.

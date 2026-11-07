@@ -1,0 +1,98 @@
+{
+  "strict": {
+    "mean": 0.16666666666666666,
+    "sd": 0.15275252316519466,
+    "sample_variance": 0.02333333333333333
+  },
+  "extended": {
+    "mean": 0.3,
+    "sd": 0.1,
+    "sample_variance": 0.010000000000000002
+  },
+  "delta": {
+    "mean": 0.13333333333333333,
+    "sd": 0.05773502691896258,
+    "sample_variance": 0.0033333333333333335
+  },
+  "improved": 4,
+  "worsened": 0,
+  "sensitivity": {
+    "unique_questions": 9,
+    "executions": 27,
+    "strict_correct": 5,
+    "extended_correct": 7
+  },
+  "totals": {
+    "calls": 392,
+    "input_tokens": 157581,
+    "output_tokens": 20357,
+    "inference_seconds": 7802.507050514221,
+    "wall_seconds": 6986.748496166998,
+    "no_terminal": 7,
+    "capped_policy_calls": 32,
+    "reward_logit_fallback_calls": 47,
+    "cached_calls": 0
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "strict_correct": 3,
+      "extended_correct": 4,
+      "strict_accuracy": 0.3,
+      "extended_accuracy": 0.4,
+      "delta": 0.1,
+      "changed": 2,
+      "strict_parsed": 4,
+      "extended_parsed": 6,
+      "no_terminal": 2,
+      "calls": 132,
+      "reward_logit_fallback_calls": 17,
+      "cached_calls": 0,
+      "input_tokens": 54171,
+      "output_tokens": 7491,
+      "inference_seconds": 2537.1140682697296,
+      "wall_seconds": 2542.807723083999,
+      "capped_policy_calls": 13
+    },
+    {
+      "seed": 43,
+      "strict_correct": 0,
+      "extended_correct": 2,
+      "strict_accuracy": 0.0,
+      "extended_accuracy": 0.2,
+      "delta": 0.2,
+      "changed": 2,
+      "strict_parsed": 3,
+      "extended_parsed": 5,
+      "no_terminal": 3,
+      "calls": 122,
+      "reward_logit_fallback_calls": 17,
+      "cached_calls": 0,
+      "input_tokens": 48389,
+      "output_tokens": 6096,
+      "inference_seconds": 1980.9129428863525,
+      "wall_seconds": 1986.6295563750027,
+      "capped_policy_calls": 7
+    },
+    {
+      "seed": 44,
+      "strict_correct": 2,
+      "extended_correct": 3,
+      "strict_accuracy": 0.2,
+      "extended_accuracy": 0.3,
+      "delta": 0.1,
+      "changed": 2,
+      "strict_parsed": 5,
+      "extended_parsed": 7,
+      "no_terminal": 2,
+      "calls": 138,
+      "reward_logit_fallback_calls": 13,
+      "cached_calls": 0,
+      "input_tokens": 55021,
+      "output_tokens": 6770,
+      "inference_seconds": 3284.480039358139,
+      "wall_seconds": 2457.311216707996,
+      "capped_policy_calls": 12
+    }
+  ]
+}

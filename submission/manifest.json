@@ -1,0 +1,14 @@
+{
+  "generation_source_commit": "b50ac89a13422ddf147a3357bf9e87c69dd10a2b",
+  "upstream_commit": "25e94d862cb4514c22d9a80a635e392461769df7",
+  "scoring_commit": "680be10e9a4ed15bf7cef945a005ccd8091b0043",
+  "extractor_sha256": "d89f1af2fa00ddea8a6a009304272f13e6382eeca2fea6c81c507f1768b2c007",
+  "dataset_sha256": "d0740662f634491425223cd1c8442efa86403a26b06799c954c5061cef6cdd8c",
+  "files": {
+    "LiTS_Reproducibility_Report.pdf": "dda37bd7fbe5eb80f7802858f0c09a5e0b5eaf80b90c20491ceb16a92e09a306",
+    "LiTS_Reproducibility_Report.docx": "7ef7ebb3edf63f32b2640d376b27ff70f6e44b313535502d27771fa3a9bde733",
+    "LiTS_Reproducibility_Interactive.pptx": "e4a283256ac90c9bf6fa8dd37ccd96c69104d4e32ce068cc1566cc11b9be3da9",
+    "English_Presentation_Script.txt": "3f6630f97a52c3b0b59acecc7776451fb113d0ed5beedaf8378fd8d10c0807e1",
+    "English_Presentation_QA.txt": "b87dd4f483e1932c13802c738b4a6cfe1ddec5460815fe48567f19e2da451b4a"
+  }
+}

@@ -127,8 +127,15 @@ commit selected completed evidence before publishing the submission repository.
 7. Correct answer content can lack the extractor's expected answer marker.
    This observation motivated the isolated extraction modification above.
 
-## Submission status
+## Completed submission
 
-Final report, presentation recording, GitHub publication, and interpretation
-remain pending until formal measurements and manual inspection are complete.
-A local repository is not a substitute for the required accessible links.
+All 30 formal task executions and frozen re-scoring completed. The saved case
+audit reviews all six changed predictions without score overrides. Final
+statistics are in `results/main/report_statistics.json`; English report and
+interactive slides are in `../submission/` and the GitHub release. A personal
+Zoom recording remains a separate submission to be made by the student.
+
+Timing note: inference logs use `time.time`, while the launcher's historical
+`wall_seconds` field uses `perf_counter`. Summed model durations exceed the
+launcher counter in the third seed. The reason is not established; retain both
+raw fields and do not use them interchangeably or infer a speed improvement.
