@@ -19,6 +19,7 @@ REPO = ROOT.parent
 sys.path[:0] = [str(REPO), str(REPO / "demos")]
 from lits.components.utils import retrieve_answer_from_last_step
 from lits_benchmark.math_qa_eval import evaluate_math_qa
+from answer_format import extract_extended
 
 
 def score_run(out, rows, exit_code):
@@ -27,17 +28,27 @@ def score_run(out, rows, exit_code):
         f = out / "terminal_nodes" / f"terminal_nodes_{idx}.json"
         nodes = json.loads(f.read_text())["terminal_nodes"] if f.exists() else []
         answers = []
+        extended_answers = []
+        extraction_evidence = []
         for node in nodes:
             step = node.get("step") or {}
             answer = retrieve_answer_from_last_step(step.get("action", ""))
             if answer:
                 answers.append(answer)
+            extended, rule = extract_extended(step.get("action", ""))
+            extraction_evidence.append(dict(text=step.get("action", ""), strict=answer,
+                                            extended=extended, rule=rule))
+            if extended: extended_answers.append(extended)
         # Deterministic plurality; insertion order breaks ties. No reference
         # answer is used when selecting a prediction. No LLM judge is called.
         pred = Counter(answers).most_common(1)[0][0] if answers else ""
+        pred_extended = Counter(extended_answers).most_common(1)[0][0] if extended_answers else ""
         scored.append(dict(index=idx, id=row["unique_id"], prediction=pred,
                            reference=str(row["answer"]),
                            correct=bool(evaluate_math_qa(pred, str(row["answer"]))),
+                           extended_prediction=pred_extended,
+                           extended_correct=bool(evaluate_math_qa(pred_extended, str(row["answer"]))),
+                           extraction_evidence=extraction_evidence,
                            terminal_count=len(nodes), parsed_answers=answers,
                            answer_format_failure=bool(nodes) and not answers,
                            execution_missing=not f.exists()))
@@ -48,6 +59,8 @@ def score_run(out, rows, exit_code):
                   metric_definition="Strict extracted numeric-answer accuracy; unparsed answers are incorrect. Not semantic reasoning accuracy.",
                   correct=sum(s["correct"] for s in scored),
                   accuracy=sum(s["correct"] for s in scored)/len(rows),
+                  extended_accuracy=sum(s["extended_correct"] for s in scored)/len(rows),
+                  changed_predictions=sum(s["prediction"] != s["extended_prediction"] for s in scored),
                   missing_examples=sum(s["execution_missing"] for s in scored),
                   no_terminal_examples=sum(s["terminal_count"] == 0 for s in scored),
                   answer_format_failure_examples=sum(s["answer_format_failure"] for s in scored),
@@ -64,6 +77,7 @@ def main():
     p.add_argument("--limit", type=int, default=10)
     p.add_argument("--seeds", type=int, nargs="+", default=[42, 43, 44])
     p.add_argument("--name", default="main")
+    p.add_argument("--budgets", type=int, nargs="+", default=[2])
     args = p.parse_args()
     rows = [json.loads(s) for s in (ROOT / "data/math500-float.jsonl").read_text().splitlines()
             if s.strip()][:args.limit]
@@ -78,7 +92,8 @@ def main():
                     dataset_revision="d27dc61b1123c2fdc4eea855c802be87dfa9d536",
                     question_ids=[r["unique_id"] for r in rows],
                     dataset_sha256=hashlib.sha256((ROOT / "data/math500-float.jsonl").read_bytes()).hexdigest(),
-                    seeds=args.seeds, iteration_budgets=[2,4], max_steps=2,
+                    seeds=args.seeds, iteration_budgets=args.budgets, max_steps=2,
+                    main_modification="Answer-format extraction only; compare two scorers on identical saved generations",
                     termination="binary_sampling", termination_samples=1,
                     torch_threads=4,
                     local_commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=REPO,text=True).strip(),
@@ -95,7 +110,7 @@ def main():
     try:
         for j, seed in enumerate(args.seeds):
             # Alternate order across trials to reduce systematic thermal bias.
-            for iters in ([2,4] if j % 2 == 0 else [4,2]):
+            for iters in (args.budgets if j % 2 == 0 else list(reversed(args.budgets))):
                 out = dest / f"seed{seed}_iters{iters}"
                 out.mkdir()
                 cmd = [sys.executable, str(ROOT / "run_local.py"), "--mode", "search",

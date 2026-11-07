@@ -4,9 +4,16 @@ import tempfile
 import unittest
 from run_study import score_run
 from lits.config import ExperimentConfig
+from answer_format import extract_extended
 
 
 class StudyChecks(unittest.TestCase):
+    def test_format_extension_accepts_explicit_conclusion_not_intermediate_numbers(self):
+        self.assertEqual(extract_extended("Reasoning: 196=4*49.\n\nSo there are 9 positive divisors.")[0], "9")
+        self.assertEqual(extract_extended("Intermediate value 9; further work needed.")[0], "")
+        self.assertEqual(extract_extended("Therefore 196 has 9 divisors.")[0], "")
+        self.assertEqual(extract_extended("Final answer: -2.5")[0], "-2.5")
+        self.assertEqual(extract_extended(r"The final value is $\boxed{9}$.")[0], "9")
     def test_cpu_loading_setting_not_forwarded_to_search(self):
         c = ExperimentConfig(dataset="math500", policy_model_name="local",
                              eval_model_name="local", search_args={"device":"cpu", "n_iters":2})

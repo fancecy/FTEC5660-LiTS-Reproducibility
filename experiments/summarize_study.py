@@ -15,7 +15,8 @@ def summarize(study):
         if not runs: continue
         row = dict(study_status=state["status"], n_iters=budget, completed_trials=len(runs),
                    planned_trials=len(state["seeds"]), questions_per_trial=len(state["question_ids"]))
-        for key in ["accuracy", "output_tokens", "input_tokens", "calls", "inference_seconds", "wall_seconds"]:
+        for key in ["accuracy", "extended_accuracy", "output_tokens", "input_tokens", "calls", "inference_seconds", "wall_seconds"]:
+            if not all(key in r for r in runs): continue
             values = [r[key] for r in runs]
             row[key + "_mean"] = statistics.mean(values)
             row[key + "_sample_std"] = statistics.stdev(values) if len(values)>1 else ""
@@ -29,7 +30,7 @@ def summarize(study):
     for f in sorted(study.glob("seed*_iters*/offline_evaluation.json")):
         run = f.parent.name
         for row in json.loads(f.read_text())["examples"]:
-            points.append(dict(run=run, **{k:v for k,v in row.items() if k != "parsed_answers"}))
+            points.append(dict(run=run, **{k:v for k,v in row.items() if k not in ["parsed_answers", "extraction_evidence"]}))
     if points:
         with (study / "per_question_results.csv").open("w", newline="") as f:
             w = csv.DictWriter(f,fieldnames=list(points[0])); w.writeheader(); w.writerows(points)

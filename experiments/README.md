@@ -1,110 +1,133 @@
-# Local LiTS reproducibility study
+# LiTS partial reproduction: answer-format robustness
 
-This directory contains a resource-limited reproduction of the LiTS math-search
-workflow and a controlled change to the MCTS iteration budget. Results must be
-read from the saved study files; setup success is not an accuracy result.
+## Study objective
 
-## Sources and scope
+Run the original LiTS MCTS pipeline on a fixed numerical MATH500 subset using a
+free local model. Then make one isolated modification: extend answer-format
+extraction and re-score exactly the same saved generations. The experiment
+measures evaluation sensitivity, not an improvement in the model's reasoning.
 
-- Assignment project: LiTS, instructor list item 3.
+The original plan explored search budgets of 2 and 4 iterations. Exploratory
+runs exposed a concrete scoring problem: a terminal answer correctly stated
+that 196 has 9 positive divisors, but the existing numeric extractor returned
+an empty answer because the phrase did not match its expected marker. The
+formal study therefore fixes the search budget at 2 iterations and compares
+only the two extraction rules. Pilot findings are not final benchmark results.
+
+## Sources and pinned versions
+
 - Upstream: https://github.com/xinzhel/lits-llm
-- Upstream commit: `25e94d862cb4514c22d9a80a635e392461769df7`.
-- Paper: https://arxiv.org/html/2603.00631v2, section 3.3 and Table 6.
-- Paper reference: ReST-MCTS achieves 37% on 100 numerical MATH500 questions
-  using Llama3-8B-Instruct. This is a contextual reference, not an expected score
-  for our model, smaller subset, or adapted settings.
+- Source commit: `25e94d862cb4514c22d9a80a635e392461769df7`.
+- Paper: https://arxiv.org/html/2603.00631v2, section 3.3, Table 6.
+- Paper reference: ReST-MCTS reports 37% on 100 numerical MATH500 questions
+  with Llama3-8B-Instruct. This figure is contextual and is not directly
+  comparable with this study's model, subset, settings, and scoring adapter.
 - Local model: Qwen/Qwen2.5-1.5B-Instruct, revision
-  `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`.
+  `989aa7980e4cf806f80c7fef2b1adb7bc71aa306` (about 3 GB).
 - Dataset: xinzhel/math500-float, revision
-  `d27dc61b1123c2fdc4eea855c802be87dfa9d536`, 316 numeric-answer rows.
-  The formal study uses the first 10 rows in source order. No success-based
-  selection is permitted. `local_math.py` removes solutions from model inputs.
+  `d27dc61b1123c2fdc4eea855c802be87dfa9d536`, 316 numerical rows.
+- Hardware: M4 MacBook Air, 16 GB memory. The execution environment cannot
+  access Metal acceleration, so measured search runs use CPU, 4 Torch threads.
 
-## Research question
+## Fixed formal protocol
 
-Does increasing MCTS iterations from 2 to 4 improve accuracy on the fixed subset,
-and what happens to token use, inference calls, and elapsed time?
+Use the first 10 questions in source order; question identifiers are saved in
+`planned_question_ids.json`. No selection based on success is permitted.
+The first question was also used during exploratory development, so this is
+not a fully held-out evaluation. `local_math.py` removes reference solutions
+from model inputs. References are used only for correctness checks.
 
-Both arms use CPU inference, branching factor 2, maximum depth 2, rollout length
-1, policy temperature 0.7, policy top-p 0.95, maximum 192 generated policy tokens,
-one correctness sample, one usefulness sample, no thinking prompts, and
-binary-sampling termination with one sample. Early termination of the whole search is disabled.
-There is a 600-second check before each search iteration; this does not interrupt
-an individual long generation and must not be described as a hard per-task limit.
-The paired pilot determines feasibility before the formal study.
+Generate outputs at seeds 42, 43 and 44. Python, NumPy and Torch are seeded at
+the run level; bitwise reproducibility across machines is not guaranteed.
+All formal runs use MCTS with 2 iterations, branching factor 2, maximum depth 2,
+rollout length 1, policy temperature 0.7, policy top-p 0.95, and at most 192
+new policy tokens. Reward scoring uses one correctness and one usefulness
+sample without thinking prompts. Termination uses binary sampling with one
+sample. Whole-search early stopping is disabled. A 600-second check before
+iterations is not a hard timeout for individual model generations.
 
-Three run-level seeds are planned: 42, 43, 44. Python, NumPy and Torch are seeded.
-This does not guarantee bitwise reproducibility across hardware or library versions.
-Arm order alternates across seeds. Both arms share the same model and settings.
-CPU compatibility fixes and the evaluator adapter apply equally to both arms;
-they are not additional experimental interventions.
+These resource reductions, the model replacement, and the evaluator adapter
+must be disclosed. The study tests a meaningful subset and workflow; it does
+not claim to replicate the paper's reported accuracy.
 
-## Evaluation
+## One modification and evaluation rules
 
-The latest upstream evaluation CLI requires an LLM with native tool calling to
-vote on language-task terminal answers. The local HF model does not provide that
-interface. This study instead uses the author's numeric answer-extraction helper
-and numeric correctness checker, with deterministic plurality across parsed
-terminal answers and first-occurrence tie breaking. The reference is never used
-to select a prediction. This evaluation deviation must be reported.
+Baseline: the author's `retrieve_answer_from_last_step` numeric extractor,
+followed by the author's `evaluate_math_qa` numeric correctness checker.
 
-Missing outputs, empty terminal sets and unparseable answers count as incorrect
-in the fixed planned denominator. They are also reported separately. A crashed
-search stops the study and is not represented as a completed experiment.
-No paid API, LLM judge or external answer service is used.
+Modified extractor: retain any baseline answer. Otherwise accept a numeric
+boxed answer or a final paragraph that starts with an explicit conclusion cue
+and contains exactly one numeric candidate. Ambiguous or unsupported formats
+remain unparsed. The function receives no reference answer and calls no LLM.
+This is a conservative format extension, not a general semantic evaluator.
+
+Both scorers use deterministic plurality across parsed terminal answers, with
+first-occurrence tie breaking. This terminal selection is a study adapter:
+the latest upstream CLI instead uses LLM voting through native tool calls,
+which the local Hugging Face wrapper does not support. Both conditions use
+identical generated trees and identical selection/checking rules; only answer
+extraction changes. No new model calls are needed for the modified condition.
+
+Report strict baseline extracted-answer accuracy, modified extracted-answer
+accuracy, changed predictions, parser failures, missing outputs, empty terminal
+sets, token usage and generation time. Keep all planned examples in the
+denominator. Review every changed prediction in `extraction_evidence` before
+claiming the score change reflects a valid answer being recovered. An improved
+score must not be described as improved reasoning. Repeated seeds are repeated
+measurements on the same 10 questions, not 30 distinct questions.
 
 ## Run in the prepared workspace
 
-From the assignment workspace, using the environment already installed there:
+From the assignment workspace:
 
 ```bash
 work/.venv/bin/python outputs/lits-reproduction/experiments/test_local_study.py
-work/.venv/bin/python outputs/lits-reproduction/experiments/run_study.py --limit 1 --seeds 42 --name paired_pilot_new
 work/.venv/bin/python outputs/lits-reproduction/experiments/run_study.py --limit 10 --seeds 42 43 44 --name main
 ```
 
-Each study name must be new to avoid mixing or overwriting runs. The original
-search CLI is invoked by `run_local.py`; this is not a reimplementation of MCTS.
-See each run's `command.json` and `config.json` for the exact command and resolved
-settings. `study_status.json` identifies complete, running, interrupted or failed
-studies. `offline_evaluation.json` records every expected question, not just
-successful outputs. Do not cite a running study as a final result.
+Each study name must be new. For a fresh machine, create a Python 3.13 virtual
+environment at the repository root, install with
+`python -m pip install -e . -c experiments/environment.lock.txt`, then run
+`python experiments/bootstrap_model.py`. Use that environment for the study.
+On macOS, set `PIP_CERT=/etc/ssl/cert.pem` if the Python certificate bundle is
+not configured. Certificate verification remains enabled.
+The `models` and `hf` links in the prepared workspace are conveniences ignored
+by Git; the bootstrap creates a pinned model cache on a fresh machine.
 
-The reported automatic accuracy is **strict extracted numeric-answer accuracy**,
-not semantic reasoning accuracy. A mathematically correct answer phrased without
-the expected answer marker may be unparsed and scored as incorrect. Report format
-failures separately and manually inspect examples before making claims about
-reasoning quality. This issue appeared in the corrected pilot: a terminal said
-there were 9 divisors, but did not use the extractor's expected answer phrase.
-
-The `models` and `hf` links are local workspace conveniences and are ignored by
-Git. They must be replaced by downloaded model files/cache when reproducing on
-another computer. For a fresh setup, create a Python 3.13 virtual environment at the repository root, run `python -m pip install -e . -c experiments/environment.lock.txt`, then run `python experiments/bootstrap_model.py`. The bootstrap downloads the exact model revision (approximately 3 GB). Use the same environment to run the study scripts. On macOS, `PIP_CERT=/etc/ssl/cert.pem` can be set if the Python certificate bundle is not configured. Training is not required.
+`run_local.py` invokes the original LiTS CLI, rather than reimplementing MCTS.
+Every run saves `command.json`, resolved `config.json`, trees, terminal nodes,
+usage logs and `offline_evaluation.json`. Study status is recorded as running,
+complete, interrupted or failed. `results_summary.csv` reports means and sample
+standard deviations only from completed runs, with completion status visible.
+`per_question_results.csv` preserves all expected questions. Never present a
+running study as a final result. Runtime output is ignored by Git during work;
+commit selected completed evidence before publishing the submission repository.
 
 ## Debug diary
 
-1. Python HTTPS certificate validation initially failed. Using the macOS system
-   certificate bundle fixed installation without disabling TLS verification.
-2. Installed upstream dependencies in an isolated virtual environment. `pip check`
-   reported no broken requirements. Exact observed versions are recorded.
-3. The execution environment cannot access Metal acceleration despite the host
-   being an M4 MacBook Air with 16 GB RAM. All measured search runs use CPU.
-4. Explicit `device=cpu` was forwarded to `MCTSConfig`, causing a TypeError.
-   Excluded this model-loading-only field from the search constructor while
-   retaining it in the saved experiment/model-loading configuration. A check
-   also ensures unknown search options still raise TypeError.
-5. The CLI list parser retains quotes in `["step_signal"]`. The correct supported
-   syntax is `[step_signal]`; the failed exploratory log is retained.
-6. Exploratory pilots used step-signal termination with free-form output. This
-   configuration is incompatible: the free-form policy does not set the explicit
-   termination flag. Depth-limited nodes are also not automatically collected as
-   terminal answers. The initial budget-only explanation was therefore incorrect.
-   Retain these pilots as configuration debugging evidence, not final results.
-   The corrected pilot and formal study use binary-sampling termination, as the
-   upstream default does, with one sample to limit CPU cost. Both arms use depth 2.
+1. Initial Python HTTPS validation failed. The system certificate bundle fixed
+   installation without disabling verification. `pip check` found no broken
+   requirements; observed versions are saved in `environment.lock.txt`.
+2. The installed runtime cannot access Metal. Use CPU measurements and disclose
+   this constraint; do not label them as GPU measurements.
+3. Upstream forwarded `device=cpu` into `MCTSConfig`, causing a TypeError.
+   A compatibility fix excludes the model-loading setting from the search
+   constructor while retaining it for model loading and saved configuration.
+   Tests confirm unknown search options still fail. This fix is shared by both
+   evaluation conditions, not the main experimental modification.
+4. The CLI list parser retains quotes in `["step_signal"]`; supported syntax
+   is `[step_signal]`. The exploratory failure log is retained.
+5. Free-form policy output does not set the explicit step-signal termination
+   flag. Early pilots using that combination were invalid as accuracy evidence.
+   The initial search-budget-only explanation was corrected after code review.
+   Corrected runs use binary-sampling termination, as the upstream default does.
+6. Exploratory runs overlapped in execution; their elapsed times are diagnostic,
+   not fair performance benchmarks. Formal generation runs execute sequentially.
+7. Correct answer content can lack the extractor's expected answer marker.
+   This observation motivated the isolated extraction modification above.
 
 ## Submission status
 
-The report, presentation recording, GitHub publication and final interpretation
-remain pending until the formal experiment finishes. A local repository or
-script is not a substitute for the required accessible submission links.
+Final report, presentation recording, GitHub publication, and interpretation
+remain pending until formal measurements and manual inspection are complete.
+A local repository is not a substitute for the required accessible links.
