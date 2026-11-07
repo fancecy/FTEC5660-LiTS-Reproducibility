@@ -1,0 +1,60 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "$\\overline{BC}$ is parallel to the segment through $A$, and $AB = BC$. What is the number of degrees represented by $x$?\n\n[asy]\ndraw((0,0)--(10,0));\ndraw((0,3)--(10,3));\ndraw((2,3)--(8,0));\ndraw((2,3)--(4,0));\nlabel(\"$A$\",(2,3),N);\nlabel(\"$B$\",(4,0),S);\nlabel(\"$C$\",(8,0),S);\nlabel(\"$124^{\\circ}$\",(2,3),SW);\nlabel(\"$x^{\\circ}$\",(4.5,3),S);\n[/asy]",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "8_1794044181",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      0.0,
+      -0.2
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 2,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "Given that AB = BC and \u2220ABC = 124\u00b0, since BC is parallel to the line through A, we have two triangles formed.\n\nSince angles on a straight line sum up to 180\u00b0, we will use this fact along with our triangle properties to find x.\n\n\u2220ABC + x = 180\u00b0\n\nPlug in the value of \u2220ABC:\n\n124\u00b0 + x = 180\u00b0\n\nNow we solve for x.\n\nSubtracting 124\u00b0 from both sides, we get:\n\nx = 180\u00b0 - 124\u00b0\n\nThus, x = 56\u00b0.\n\nTherefore, the angle x represents 56 degrees."
+      }
+    ],
+    "action": "Given that AB = BC and \u2220ABC = 124\u00b0, since BC is parallel to the line through A, we have two triangles formed.\n\nSince angles on a straight line sum up to 180\u00b0, we will use this fact along with our triangle properties to find x.\n\n\u2220ABC + x = 180\u00b0\n\nPlug in the value of \u2220ABC:\n\n124\u00b0 + x = 180\u00b0\n\nNow we solve for x.\n\nSubtracting 124\u00b0 from both sides, we get:\n\nx = 180\u00b0 - 124\u00b0\n\nThus, x = 56\u00b0.\n\nTherefore, the angle x represents 56 degrees.",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 1.0,
+    "trajectory_key": {
+      "search_id": "8_1794044181",
+      "indices": [
+        1
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Given that AB = BC and \u2220ABC = 124\u00b0, since BC is parallel to the line through A, we have two triangles formed.\n\nSince angles on a straight line sum up to 180\u00b0, we will use this fact along with our triangle properties to find x.\n\n\u2220ABC + x = 180\u00b0\n\nPlug in the value of \u2220ABC:\n\n124\u00b0 + x = 180\u00b0\n\nNow we solve for x.\n\nSubtracting 124\u00b0 from both sides, we get:\n\nx = 180\u00b0 - 124\u00b0\n\nThus, x = 56\u00b0.\n\nTherefore, the angle x represents 56 degrees."
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      1.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

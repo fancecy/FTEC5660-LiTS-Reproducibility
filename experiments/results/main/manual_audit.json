@@ -1,0 +1,68 @@
+[
+  {
+    "seed": 42,
+    "index": 0,
+    "review_status": "reviewed",
+    "reviewed_by": "AI-assisted case-by-case review",
+    "classification": "valid_correct_answer_recovery",
+    "baseline_prediction": "",
+    "modified_prediction": "9",
+    "reference": "9",
+    "explanation": "The selected terminal explicitly concludes that 196 has 9 positive divisors. Its factorization has exponents two and two, so the divisor count is nine. The later object restatement of 196 does not create a competing answer. The other terminal is incomplete and remains unparsed."
+  },
+  {
+    "seed": 42,
+    "index": 8,
+    "review_status": "reviewed",
+    "reviewed_by": "AI-assisted case-by-case review",
+    "classification": "explicit_but_incorrect_answer_recovery",
+    "baseline_prediction": "",
+    "modified_prediction": "56",
+    "reference": "28",
+    "explanation": "The selected terminal explicitly concludes 56 degrees. That is a faithful extraction of the model answer, but the reasoning stops at the supplementary angle and does not apply the isosceles condition to obtain the required 28-degree angle. Both automatic scoring conditions therefore remain incorrect. This case improves parsing coverage without improving correctness."
+  },
+  {
+    "seed": 43,
+    "index": 1,
+    "review_status": "reviewed",
+    "reviewed_by": "AI-assisted case-by-case review",
+    "classification": "valid_correct_answer_recovery",
+    "baseline_prediction": "",
+    "modified_prediction": "42",
+    "reference": "42",
+    "explanation": "The selected second terminal derives a triangle side of 7 inches from the 21-inch perimeter, then derives the hexagon perimeter as 6 times 7, or 42. Its final paragraph explicitly gives 42 inches and contains one numeric candidate. The first terminal has inconsistent intermediate reasoning and is cut off; it remains unparsed. The extraction recovers a valid final answer outside the development question."
+  },
+  {
+    "seed": 43,
+    "index": 6,
+    "review_status": "reviewed",
+    "reviewed_by": "AI-assisted case-by-case review",
+    "classification": "valid_correct_answer_recovery",
+    "baseline_prediction": "",
+    "modified_prediction": "5",
+    "reference": "5",
+    "explanation": "Both terminal outputs explicitly conclude that the height is 5 cm. Each uses the supplied radius 3 and cylinder volume 45 times pi, giving height 45 divided by 9, or 5. The final paragraph has one numeric candidate. The modified plurality prediction agrees across both terminals; this is a valid answer recovery on a non-development question."
+  },
+  {
+    "seed": 44,
+    "index": 0,
+    "review_status": "reviewed",
+    "reviewed_by": "AI-assisted case-by-case review",
+    "classification": "valid_correct_answer_recovery",
+    "baseline_prediction": "",
+    "modified_prediction": "9",
+    "reference": "9",
+    "explanation": "The first terminal gives the correct factorization with exponents two and two, states the divisor-count rule, and explicitly concludes that there are 9 positive divisors of 196. The count slot is unambiguous despite the object restatement 196. The second terminal ends before completing its calculation and remains unparsed. Recovering 9 is mathematically valid, while the development-question overlap remains disclosed."
+  },
+  {
+    "seed": 44,
+    "index": 9,
+    "review_status": "reviewed",
+    "reviewed_by": "AI-assisted case-by-case review",
+    "classification": "explicit_but_incorrect_answer_recovery",
+    "baseline_prediction": "",
+    "modified_prediction": "1",
+    "reference": "3",
+    "explanation": "The terminal explicitly concludes that the smallest positive a is 1. The extraction is faithful, but the answer is wrong: factoring the polynomial gives (x+1)(x^2+(a-1)x+1), whose quadratic discriminant requires (a-1)^2 >= 4. With a positive, the minimum is 3. The terminal incorrectly assumes equal roots at -1/3. Both conditions remain incorrect."
+  }
+]

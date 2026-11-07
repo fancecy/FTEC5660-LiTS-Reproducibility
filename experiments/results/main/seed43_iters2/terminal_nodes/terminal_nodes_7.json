@@ -1,0 +1,74 @@
+{
+  "terminal_nodes": [
+    {
+      "id": 1,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "Pair terms in groups of two: $(1 - 2) + (3 - 4) + (5 - 6) + \\dots + (97 - 98) + 99 - 100$.\n\nNow we can answer the question: The answer is 0."
+        }
+      ],
+      "action": "Pair terms in groups of two: $(1 - 2) + (3 - 4) + (5 - 6) + \\dots + (97 - 98) + 99 - 100$.\n\nNow we can answer the question: The answer is 0.",
+      "is_continuous": false,
+      "is_terminal": true,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 0.0,
+      "trajectory_key": {
+        "search_id": "7_1794046196",
+        "indices": [
+          0
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "Pair terms in groups of two: $(1 - 2) + (3 - 4) + (5 - 6) + \\dots + (97 - 98) + 99 - 100$.\n\nNow we can answer the question: The answer is 0."
+      },
+      "from_simulate": false,
+      "is_simulated": false,
+      "from_expand": true,
+      "cum_rewards": [
+        0.0
+      ],
+      "visit_count": 1,
+      "from_continuation": false
+    },
+    {
+      "id": 2,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "To compute the sum \\(1 - 2 + 3 - 4 + 5 - \\dots + 99 - 100\\), first group the terms into pairs:\n\n\\( (1 - 2) + (3 - 4) + (5 - 6) + \\dots + (99 - 100) \\)\n\nEach pair results in \\(-1\\):\n\n\\( -1 + (-1) + (-1) + \\dots + (-1) \\)\n\nThere are 50 such pairs.\n\nTherefore, the total sum is:\n\n\\( -1 \\times 50 = -50 \\)\n\nNow we can answer the question: The answer is -50."
+        }
+      ],
+      "action": "To compute the sum \\(1 - 2 + 3 - 4 + 5 - \\dots + 99 - 100\\), first group the terms into pairs:\n\n\\( (1 - 2) + (3 - 4) + (5 - 6) + \\dots + (99 - 100) \\)\n\nEach pair results in \\(-1\\):\n\n\\( -1 + (-1) + (-1) + \\dots + (-1) \\)\n\nThere are 50 such pairs.\n\nTherefore, the total sum is:\n\n\\( -1 \\times 50 = -50 \\)\n\nNow we can answer the question: The answer is -50.",
+      "is_continuous": false,
+      "is_terminal": true,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 0.9241418242454529,
+      "trajectory_key": {
+        "search_id": "7_1794046196",
+        "indices": [
+          1
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "To compute the sum \\(1 - 2 + 3 - 4 + 5 - \\dots + 99 - 100\\), first group the terms into pairs:\n\n\\( (1 - 2) + (3 - 4) + (5 - 6) + \\dots + (99 - 100) \\)\n\nEach pair results in \\(-1\\):\n\n\\( -1 + (-1) + (-1) + \\dots + (-1) \\)\n\nThere are 50 such pairs.\n\nTherefore, the total sum is:\n\n\\( -1 \\times 50 = -50 \\)\n\nNow we can answer the question: The answer is -50."
+      },
+      "from_simulate": false,
+      "is_simulated": true,
+      "from_expand": true,
+      "cum_rewards": [
+        0.9241418242454529
+      ],
+      "visit_count": 1,
+      "from_continuation": false
+    }
+  ],
+  "query": "Compute: $1-2+3-4+5- \\dots +99-100$.",
+  "query_idx": 7
+}

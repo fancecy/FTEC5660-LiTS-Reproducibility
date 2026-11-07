@@ -1,0 +1,60 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "What is the least positive integer multiple of 30 that can be written with only the digits 0 and 2?",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "4_1794045525",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      0.0,
+      -0.012978672981262207
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 1,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "To find the smallest positive integer multiple of 30 that consists only of the digits 0 and 2, start checking from the smallest possible numbers formed using these digits. The number must end in 0 because it needs to be divisible by both 2 (to have an even last digit) and 5 (since 30 = 2 \u00d7 3 \u00d7 5).\n\nLet's check if \"20\" meets the criteria:\n\n- It ends in 0, satisfying divisibility by 2.\n- We need to verify if there exists any smaller combination meeting these conditions.\n\nSince \"20\" fits all requirements:\nTherefore, the least positive integer multiple of 30 that can be written using only the digits 0 and 2 is **20**."
+      }
+    ],
+    "action": "To find the smallest positive integer multiple of 30 that consists only of the digits 0 and 2, start checking from the smallest possible numbers formed using these digits. The number must end in 0 because it needs to be divisible by both 2 (to have an even last digit) and 5 (since 30 = 2 \u00d7 3 \u00d7 5).\n\nLet's check if \"20\" meets the criteria:\n\n- It ends in 0, satisfying divisibility by 2.\n- We need to verify if there exists any smaller combination meeting these conditions.\n\nSince \"20\" fits all requirements:\nTherefore, the least positive integer multiple of 30 that can be written using only the digits 0 and 2 is **20**.",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.9740426540374756,
+    "trajectory_key": {
+      "search_id": "4_1794045525",
+      "indices": [
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "To find the smallest positive integer multiple of 30 that consists only of the digits 0 and 2, start checking from the smallest possible numbers formed using these digits. The number must end in 0 because it needs to be divisible by both 2 (to have an even last digit) and 5 (since 30 = 2 \u00d7 3 \u00d7 5).\n\nLet's check if \"20\" meets the criteria:\n\n- It ends in 0, satisfying divisibility by 2.\n- We need to verify if there exists any smaller combination meeting these conditions.\n\nSince \"20\" fits all requirements:\nTherefore, the least positive integer multiple of 30 that can be written using only the digits 0 and 2 is **20**."
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": true,
+    "cum_rewards": [
+      0.9740426540374756
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

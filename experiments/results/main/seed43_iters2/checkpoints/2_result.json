@@ -1,0 +1,60 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "What is the smallest positive perfect cube that can be written as the sum of three consecutive integers?",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "2_1794044992",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      -0.12,
+      0.03666666666666666
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 1,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "To find the smallest positive perfect cube that can be written as the sum of three consecutive integers, let's first express this sum algebraically. Let the three consecutive integers be \\(n-1\\), \\(n\\), and \\(n+1\\). Their sum is:\n\n\\[ (n-1) + n + (n+1) = 3n \\]\n\nThis expression represents the sum of three consecutive integers.\n\nFor this sum to be a perfect cube, \\(3n\\) must equal a perfect cube, say \\(k^3\\), where \\(k\\) is an integer. Thus,\n\n\\[ 3n = k^3 \\]\n\\[ n = \\frac{k^3}{3} \\]\n\nSince \\(n\\) must be an integer, \\(k^3\\) must be divisible by 3. Therefore, \\(k\\) must also be divisible by 3 for \\(n\\) to be an integer. We start checking values of \\("
+      }
+    ],
+    "action": "To find the smallest positive perfect cube that can be written as the sum of three consecutive integers, let's first express this sum algebraically. Let the three consecutive integers be \\(n-1\\), \\(n\\), and \\(n+1\\). Their sum is:\n\n\\[ (n-1) + n + (n+1) = 3n \\]\n\nThis expression represents the sum of three consecutive integers.\n\nFor this sum to be a perfect cube, \\(3n\\) must equal a perfect cube, say \\(k^3\\), where \\(k\\) is an integer. Thus,\n\n\\[ 3n = k^3 \\]\n\\[ n = \\frac{k^3}{3} \\]\n\nSince \\(n\\) must be an integer, \\(k^3\\) must be divisible by 3. Therefore, \\(k\\) must also be divisible by 3 for \\(n\\) to be an integer. We start checking values of \\(",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.76,
+    "trajectory_key": {
+      "search_id": "2_1794044992",
+      "indices": [
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "To find the smallest positive perfect cube that can be written as the sum of three consecutive integers, let's first express this sum algebraically. Let the three consecutive integers be \\(n-1\\), \\(n\\), and \\(n+1\\). Their sum is:\n\n\\[ (n-1) + n + (n+1) = 3n \\]\n\nThis expression represents the sum of three consecutive integers.\n\nFor this sum to be a perfect cube, \\(3n\\) must equal a perfect cube, say \\(k^3\\), where \\(k\\) is an integer. Thus,\n\n\\[ 3n = k^3 \\]\n\\[ n = \\frac{k^3}{3} \\]\n\nSince \\(n\\) must be an integer, \\(k^3\\) must be divisible by 3. Therefore, \\(k\\) must also be divisible by 3 for \\(n\\) to be an integer. We start checking values of \\("
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      0.76
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

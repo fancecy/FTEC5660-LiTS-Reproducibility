@@ -1,0 +1,99 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "Compute: $1-2+3-4+5- \\dots +99-100$.",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "7_1794043949",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      0.0,
+      0.02999999999999999
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 2,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "We notice this series alternates between positive and negative terms. To simplify it, let's group pairs of consecutive terms.\n\nStep 2: Grouping pairs: $(1 - 2) + (3 - 4) + \\dots + (99 - 100)$\n\nNow we have 50 such groups:\n\nStep 3: Simplifying each pair: $-(1 + 2) + -(3 + 4) + \\dots + -(99 + 100)$\n\nEach pair sums to $-3$, except for the last term which stands alone as $-100$.\n\nStep 4: Total sum before considering last term: $-3 \\times 49 = -147$\n\nAdding the remaining $-100$ from Step 3 gives us the total sum of the series:\n\nStep 5: Final calculation: $-147 - 10"
+      }
+    ],
+    "action": "We notice this series alternates between positive and negative terms. To simplify it, let's group pairs of consecutive terms.\n\nStep 2: Grouping pairs: $(1 - 2) + (3 - 4) + \\dots + (99 - 100)$\n\nNow we have 50 such groups:\n\nStep 3: Simplifying each pair: $-(1 + 2) + -(3 + 4) + \\dots + -(99 + 100)$\n\nEach pair sums to $-3$, except for the last term which stands alone as $-100$.\n\nStep 4: Total sum before considering last term: $-3 \\times 49 = -147$\n\nAdding the remaining $-100$ from Step 3 gives us the total sum of the series:\n\nStep 5: Final calculation: $-147 - 10",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.49,
+    "trajectory_key": {
+      "search_id": "7_1794043949",
+      "indices": [
+        1
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "We notice this series alternates between positive and negative terms. To simplify it, let's group pairs of consecutive terms.\n\nStep 2: Grouping pairs: $(1 - 2) + (3 - 4) + \\dots + (99 - 100)$\n\nNow we have 50 such groups:\n\nStep 3: Simplifying each pair: $-(1 + 2) + -(3 + 4) + \\dots + -(99 + 100)$\n\nEach pair sums to $-3$, except for the last term which stands alone as $-100$.\n\nStep 4: Total sum before considering last term: $-3 \\times 49 = -147$\n\nAdding the remaining $-100$ from Step 3 gives us the total sum of the series:\n\nStep 5: Final calculation: $-147 - 10"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": true,
+    "cum_rewards": [
+      0.5449999999999999
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  },
+  {
+    "id": 3,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "We notice this series alternates between positive and negative terms. To simplify it, let's group pairs of consecutive terms.\n\nStep 2: Grouping pairs: $(1 - 2) + (3 - 4) + \\dots + (99 - 100)$\n\nNow we have 50 such groups:\n\nStep 3: Simplifying each pair: $-(1 + 2) + -(3 + 4) + \\dots + -(99 + 100)$\n\nEach pair sums to $-3$, except for the last term which stands alone as $-100$.\n\nStep 4: Total sum before considering last term: $-3 \\times 49 = -147$\n\nAdding the remaining $-100$ from Step 3 gives us the total sum of the series:\n\nStep 5: Final calculation: $-147 - 10"
+      },
+      {
+        "__type__": "ThoughtStep",
+        "action": "Final Answer: -157"
+      }
+    ],
+    "action": "Final Answer: -157",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.6,
+    "trajectory_key": {
+      "search_id": "7_1794043949",
+      "indices": [
+        1,
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Final Answer: -157"
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      0.6
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

@@ -1,0 +1,96 @@
+{
+  "id": 0,
+  "state": [],
+  "action": "The proper divisors of 12 are 1, 2, 3, 4 and 6. A proper divisor of an integer $N$ is a positive divisor of $N$ that is less than $N$. What is the sum of the proper divisors of the sum of the proper divisors of 284?",
+  "is_continuous": false,
+  "is_terminal": false,
+  "bn_score": -1,
+  "state_conf": -1,
+  "fast_reward": -1.0,
+  "trajectory_key": {
+    "search_id": "5_1794043438",
+    "indices": [],
+    "root_token": "q"
+  },
+  "from_simulate": false,
+  "is_simulated": false,
+  "from_expand": false,
+  "cum_rewards": [
+    -0.09121277928352356,
+    -0.32567743957042694
+  ],
+  "visit_count": 2,
+  "from_continuation": false,
+  "children": [
+    {
+      "id": 1,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "To find the sum of the proper divisors of 284, first calculate its proper divisors.\n\n**Step 2:** Calculate the sum of the proper divisors of 284."
+        }
+      ],
+      "action": "To find the sum of the proper divisors of 284, first calculate its proper divisors.\n\n**Step 2:** Calculate the sum of the proper divisors of 284.",
+      "is_continuous": false,
+      "is_terminal": true,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 0.3486451208591461,
+      "trajectory_key": {
+        "search_id": "5_1794043438",
+        "indices": [
+          0
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "To find the sum of the proper divisors of 284, first calculate its proper divisors.\n\n**Step 2:** Calculate the sum of the proper divisors of 284."
+      },
+      "from_simulate": false,
+      "is_simulated": false,
+      "from_expand": true,
+      "cum_rewards": [
+        0.3486451208591461
+      ],
+      "visit_count": 1,
+      "from_continuation": false,
+      "children": []
+    },
+    {
+      "id": 2,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "The prime factorization of 284 is \\(2^2 \\times 71\\).\n\nFirst, find all the proper divisors of 284.\n\nNext, calculate their sum.\n\nFinally, determine the sum of these proper divisors."
+        }
+      ],
+      "action": "The prime factorization of 284 is \\(2^2 \\times 71\\).\n\nFirst, find all the proper divisors of 284.\n\nNext, calculate their sum.\n\nFinally, determine the sum of these proper divisors.",
+      "is_continuous": false,
+      "is_terminal": false,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 0.8175744414329529,
+      "trajectory_key": {
+        "search_id": "5_1794043438",
+        "indices": [
+          1
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "The prime factorization of 284 is \\(2^2 \\times 71\\).\n\nFirst, find all the proper divisors of 284.\n\nNext, calculate their sum.\n\nFinally, determine the sum of these proper divisors."
+      },
+      "from_simulate": false,
+      "is_simulated": true,
+      "from_expand": true,
+      "cum_rewards": [
+        0.8175744414329529
+      ],
+      "visit_count": 1,
+      "from_continuation": false,
+      "children": []
+    }
+  ]
+}

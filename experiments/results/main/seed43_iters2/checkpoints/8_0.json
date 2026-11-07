@@ -1,0 +1,59 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "$\\overline{BC}$ is parallel to the segment through $A$, and $AB = BC$. What is the number of degrees represented by $x$?\n\n[asy]\ndraw((0,0)--(10,0));\ndraw((0,3)--(10,3));\ndraw((2,3)--(8,0));\ndraw((2,3)--(4,0));\nlabel(\"$A$\",(2,3),N);\nlabel(\"$B$\",(4,0),S);\nlabel(\"$C$\",(8,0),S);\nlabel(\"$124^{\\circ}$\",(2,3),SW);\nlabel(\"$x^{\\circ}$\",(4.5,3),S);\n[/asy]",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "8_1794046297",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      -0.125
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  },
+  {
+    "id": 2,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "We know that $AB = BC$, which means triangle $ABC$ is isosceles. Therefore, angles opposite these sides, $A$ and $C$, are equal.\n\nNext, let's find angle $A$. Since triangle $ABC$ is isosceles, the sum of its internal angles equals $180^\\circ$.\n\nThe remaining part of this process involves calculating the measure of angle $A$ using basic geometry principles.\n\nFrom here, it follows that $x = A$. Now we have enough information to calculate the value of $x$."
+      }
+    ],
+    "action": "We know that $AB = BC$, which means triangle $ABC$ is isosceles. Therefore, angles opposite these sides, $A$ and $C$, are equal.\n\nNext, let's find angle $A$. Since triangle $ABC$ is isosceles, the sum of its internal angles equals $180^\\circ$.\n\nThe remaining part of this process involves calculating the measure of angle $A$ using basic geometry principles.\n\nFrom here, it follows that $x = A$. Now we have enough information to calculate the value of $x$.",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.75,
+    "trajectory_key": {
+      "search_id": "8_1794046297",
+      "indices": [
+        1
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "We know that $AB = BC$, which means triangle $ABC$ is isosceles. Therefore, angles opposite these sides, $A$ and $C$, are equal.\n\nNext, let's find angle $A$. Since triangle $ABC$ is isosceles, the sum of its internal angles equals $180^\\circ$.\n\nThe remaining part of this process involves calculating the measure of angle $A$ using basic geometry principles.\n\nFrom here, it follows that $x = A$. Now we have enough information to calculate the value of $x$."
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      0.75
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

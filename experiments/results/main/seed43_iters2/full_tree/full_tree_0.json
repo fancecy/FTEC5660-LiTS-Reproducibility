@@ -1,0 +1,166 @@
+{
+  "id": 0,
+  "state": [],
+  "action": "How many positive whole-number divisors does 196 have?",
+  "is_continuous": false,
+  "is_terminal": false,
+  "bn_score": -1,
+  "state_conf": -1,
+  "fast_reward": -1.0,
+  "trajectory_key": {
+    "search_id": "0_1794044774",
+    "indices": [],
+    "root_token": "q"
+  },
+  "from_simulate": false,
+  "is_simulated": false,
+  "from_expand": false,
+  "cum_rewards": [
+    -0.11135008931159973,
+    -0.11373333333333331
+  ],
+  "visit_count": 2,
+  "from_continuation": false,
+  "children": [
+    {
+      "id": 1,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "To find the number of positive whole-number divisors of 196, we first need to determine its prime factorization."
+        }
+      ],
+      "action": "To find the number of positive whole-number divisors of 196, we first need to determine its prime factorization.",
+      "is_continuous": false,
+      "is_terminal": false,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 0.7772998213768005,
+      "trajectory_key": {
+        "search_id": "0_1794044774",
+        "indices": [
+          0
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "To find the number of positive whole-number divisors of 196, we first need to determine its prime factorization."
+      },
+      "from_simulate": false,
+      "is_simulated": true,
+      "from_expand": true,
+      "cum_rewards": [
+        0.7772998213768005
+      ],
+      "visit_count": 1,
+      "from_continuation": false,
+      "children": []
+    },
+    {
+      "id": 2,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization.\n\nNow we can answer the question: The answer is 12."
+        }
+      ],
+      "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization.\n\nNow we can answer the question: The answer is 12.",
+      "is_continuous": false,
+      "is_terminal": false,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 0.0,
+      "trajectory_key": {
+        "search_id": "0_1794044774",
+        "indices": [
+          1
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization.\n\nNow we can answer the question: The answer is 12."
+      },
+      "from_simulate": false,
+      "is_simulated": false,
+      "from_expand": true,
+      "cum_rewards": [
+        0.3294
+      ],
+      "visit_count": 1,
+      "from_continuation": false,
+      "children": [
+        {
+          "id": 3,
+          "state": [
+            {
+              "__type__": "ThoughtStep",
+              "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization.\n\nNow we can answer the question: The answer is 12."
+            },
+            {
+              "__type__": "ThoughtStep",
+              "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization."
+            }
+          ],
+          "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization.",
+          "is_continuous": false,
+          "is_terminal": false,
+          "bn_score": -1,
+          "state_conf": 1.0,
+          "fast_reward": 0.6588,
+          "trajectory_key": {
+            "search_id": "0_1794044774",
+            "indices": [
+              1,
+              0
+            ],
+            "root_token": "q"
+          },
+          "step": {
+            "__type__": "ThoughtStep",
+            "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization."
+          },
+          "from_simulate": false,
+          "is_simulated": true,
+          "from_expand": true,
+          "cum_rewards": [
+            0.6588
+          ],
+          "visit_count": 1,
+          "from_continuation": false,
+          "children": []
+        },
+        {
+          "id": 4,
+          "state": null,
+          "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization.",
+          "is_continuous": false,
+          "is_terminal": false,
+          "bn_score": -1,
+          "state_conf": -1,
+          "fast_reward": 0.25,
+          "trajectory_key": {
+            "search_id": "0_1794044774",
+            "indices": [
+              1,
+              1
+            ],
+            "root_token": "q"
+          },
+          "step": {
+            "__type__": "ThoughtStep",
+            "action": "To find the number of positive whole-number divisors of 196, start by finding its prime factorization."
+          },
+          "from_simulate": false,
+          "is_simulated": false,
+          "from_expand": true,
+          "cum_rewards": [],
+          "visit_count": 0,
+          "from_continuation": false,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

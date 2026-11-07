@@ -1,0 +1,166 @@
+{
+  "id": 0,
+  "state": [],
+  "action": "A regular hexagon can be divided into six equilateral triangles. If the perimeter of one of the triangles is 21 inches, what is the perimeter, in inches, of the regular hexagon?",
+  "is_continuous": false,
+  "is_terminal": false,
+  "bn_score": -1,
+  "state_conf": -1,
+  "fast_reward": -1.0,
+  "trajectory_key": {
+    "search_id": "1_1794047280",
+    "indices": [],
+    "root_token": "q"
+  },
+  "from_simulate": false,
+  "is_simulated": false,
+  "from_expand": false,
+  "cum_rewards": [
+    0.0,
+    0.16666666666666666
+  ],
+  "visit_count": 2,
+  "from_continuation": false,
+  "children": [
+    {
+      "id": 1,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "Each side of the equilateral triangle is half the length of its perimeter. Let's calculate this first.\n\nStep 2:"
+        }
+      ],
+      "action": "Each side of the equilateral triangle is half the length of its perimeter. Let's calculate this first.\n\nStep 2:",
+      "is_continuous": false,
+      "is_terminal": false,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 0.5,
+      "trajectory_key": {
+        "search_id": "1_1794047280",
+        "indices": [
+          0
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "Each side of the equilateral triangle is half the length of its perimeter. Let's calculate this first.\n\nStep 2:"
+      },
+      "from_simulate": false,
+      "is_simulated": false,
+      "from_expand": true,
+      "cum_rewards": [
+        0.75
+      ],
+      "visit_count": 1,
+      "from_continuation": false,
+      "children": [
+        {
+          "id": 3,
+          "state": [
+            {
+              "__type__": "ThoughtStep",
+              "action": "Each side of the equilateral triangle is half the length of its perimeter. Let's calculate this first.\n\nStep 2:"
+            },
+            {
+              "__type__": "ThoughtStep",
+              "action": "Each side of the equilateral triangle is \\( \\frac{21}{6} = 3.5 \\) inches long. Since each side of the hexagon corresponds to two sides of the equilateral triangle, the perimeter of the hexagon is \\( 3.5 \\times 6 = 21 \\) inches."
+            }
+          ],
+          "action": "Each side of the equilateral triangle is \\( \\frac{21}{6} = 3.5 \\) inches long. Since each side of the hexagon corresponds to two sides of the equilateral triangle, the perimeter of the hexagon is \\( 3.5 \\times 6 = 21 \\) inches.",
+          "is_continuous": false,
+          "is_terminal": true,
+          "bn_score": -1,
+          "state_conf": 1.0,
+          "fast_reward": 1.0,
+          "trajectory_key": {
+            "search_id": "1_1794047280",
+            "indices": [
+              0,
+              0
+            ],
+            "root_token": "q"
+          },
+          "step": {
+            "__type__": "ThoughtStep",
+            "action": "Each side of the equilateral triangle is \\( \\frac{21}{6} = 3.5 \\) inches long. Since each side of the hexagon corresponds to two sides of the equilateral triangle, the perimeter of the hexagon is \\( 3.5 \\times 6 = 21 \\) inches."
+          },
+          "from_simulate": false,
+          "is_simulated": true,
+          "from_expand": true,
+          "cum_rewards": [
+            1.0
+          ],
+          "visit_count": 1,
+          "from_continuation": false,
+          "children": []
+        },
+        {
+          "id": 4,
+          "state": null,
+          "action": "Each side of the equilateral triangle is \\( \\frac{21}{6} = 3.5 \\) inches long. Since each side of the hexagon corresponds to two sides of the equilateral triangle, the perimeter of the hexagon is \\( 3.5 \\times 6 = 21 \\) inches.",
+          "is_continuous": false,
+          "is_terminal": false,
+          "bn_score": -1,
+          "state_conf": -1,
+          "fast_reward": 1.0,
+          "trajectory_key": {
+            "search_id": "1_1794047280",
+            "indices": [
+              0,
+              1
+            ],
+            "root_token": "q"
+          },
+          "step": {
+            "__type__": "ThoughtStep",
+            "action": "Each side of the equilateral triangle is \\( \\frac{21}{6} = 3.5 \\) inches long. Since each side of the hexagon corresponds to two sides of the equilateral triangle, the perimeter of the hexagon is \\( 3.5 \\times 6 = 21 \\) inches."
+          },
+          "from_simulate": false,
+          "is_simulated": false,
+          "from_expand": true,
+          "cum_rewards": [],
+          "visit_count": 0,
+          "from_continuation": false,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "Each side of the equilateral triangle is equal to its perimeter divided by 3 because it has three sides. Thus,\nSide length of equilateral triangle = Perimeter / 3 = 21 / 3 = 7 inches\n\nSince a regular hexagon consists of six such equilateral triangles, each side of the hexagon would also be 7 inches.\n\nTo find the total perimeter of the hexagon, multiply the side length by the number of sides:\nHexagon perimeter = Side length * Number of sides = 7 * 6 = 42 inches\n\nNow we can answer the question:\n\nThe answer is 42."
+        }
+      ],
+      "action": "Each side of the equilateral triangle is equal to its perimeter divided by 3 because it has three sides. Thus,\nSide length of equilateral triangle = Perimeter / 3 = 21 / 3 = 7 inches\n\nSince a regular hexagon consists of six such equilateral triangles, each side of the hexagon would also be 7 inches.\n\nTo find the total perimeter of the hexagon, multiply the side length by the number of sides:\nHexagon perimeter = Side length * Number of sides = 7 * 6 = 42 inches\n\nNow we can answer the question:\n\nThe answer is 42.",
+      "is_continuous": false,
+      "is_terminal": true,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 1.0,
+      "trajectory_key": {
+        "search_id": "1_1794047280",
+        "indices": [
+          1
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "Each side of the equilateral triangle is equal to its perimeter divided by 3 because it has three sides. Thus,\nSide length of equilateral triangle = Perimeter / 3 = 21 / 3 = 7 inches\n\nSince a regular hexagon consists of six such equilateral triangles, each side of the hexagon would also be 7 inches.\n\nTo find the total perimeter of the hexagon, multiply the side length by the number of sides:\nHexagon perimeter = Side length * Number of sides = 7 * 6 = 42 inches\n\nNow we can answer the question:\n\nThe answer is 42."
+      },
+      "from_simulate": false,
+      "is_simulated": true,
+      "from_expand": true,
+      "cum_rewards": [
+        1.0
+      ],
+      "visit_count": 1,
+      "from_continuation": false,
+      "children": []
+    }
+  ]
+}

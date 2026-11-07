@@ -1,0 +1,60 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "Compute: $1-2+3-4+5- \\dots +99-100$.",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "7_1794046196",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      -0.03792908787727356,
+      -0.5
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 1,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "Pair terms in groups of two: $(1 - 2) + (3 - 4) + (5 - 6) + \\dots + (97 - 98) + 99 - 100$.\n\nNow we can answer the question: The answer is 0."
+      }
+    ],
+    "action": "Pair terms in groups of two: $(1 - 2) + (3 - 4) + (5 - 6) + \\dots + (97 - 98) + 99 - 100$.\n\nNow we can answer the question: The answer is 0.",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.0,
+    "trajectory_key": {
+      "search_id": "7_1794046196",
+      "indices": [
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Pair terms in groups of two: $(1 - 2) + (3 - 4) + (5 - 6) + \\dots + (97 - 98) + 99 - 100$.\n\nNow we can answer the question: The answer is 0."
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": true,
+    "cum_rewards": [
+      0.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

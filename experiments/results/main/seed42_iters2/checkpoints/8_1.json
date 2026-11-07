@@ -1,0 +1,60 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "$\\overline{BC}$ is parallel to the segment through $A$, and $AB = BC$. What is the number of degrees represented by $x$?\n\n[asy]\ndraw((0,0)--(10,0));\ndraw((0,3)--(10,3));\ndraw((2,3)--(8,0));\ndraw((2,3)--(4,0));\nlabel(\"$A$\",(2,3),N);\nlabel(\"$B$\",(4,0),S);\nlabel(\"$C$\",(8,0),S);\nlabel(\"$124^{\\circ}$\",(2,3),SW);\nlabel(\"$x^{\\circ}$\",(4.5,3),S);\n[/asy]",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "8_1794044181",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      0.0,
+      -0.2
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 1,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "Given that $\\overline{BC} \\parallel AB$ and $AB = BC$, we recognize that triangle $ABC$ is an isosceles right triangle because it has two equal sides ($AB = BC$) and a right angle at vertex $A$. In such a triangle, if one of the angles opposite an equal side is labeled as $x^\\circ$, then the sum of the angles in a triangle equals $180^\\circ$.\n\nWe know from the diagram that the right angle is $90^\\circ$. Therefore, the sum of angles $A$, $B$, and $C$ must also equal $180^\\circ$ since they form a straight line.\n\n\\[ A + B + C = 180^\\circ \\]\n\nSince $B = x^\\circ$ and $C = 90^\\circ$, we substitute these values into our equation:\n\n\\[ x^\\circ + 90"
+      }
+    ],
+    "action": "Given that $\\overline{BC} \\parallel AB$ and $AB = BC$, we recognize that triangle $ABC$ is an isosceles right triangle because it has two equal sides ($AB = BC$) and a right angle at vertex $A$. In such a triangle, if one of the angles opposite an equal side is labeled as $x^\\circ$, then the sum of the angles in a triangle equals $180^\\circ$.\n\nWe know from the diagram that the right angle is $90^\\circ$. Therefore, the sum of angles $A$, $B$, and $C$ must also equal $180^\\circ$ since they form a straight line.\n\n\\[ A + B + C = 180^\\circ \\]\n\nSince $B = x^\\circ$ and $C = 90^\\circ$, we substitute these values into our equation:\n\n\\[ x^\\circ + 90",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.6,
+    "trajectory_key": {
+      "search_id": "8_1794044181",
+      "indices": [
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Given that $\\overline{BC} \\parallel AB$ and $AB = BC$, we recognize that triangle $ABC$ is an isosceles right triangle because it has two equal sides ($AB = BC$) and a right angle at vertex $A$. In such a triangle, if one of the angles opposite an equal side is labeled as $x^\\circ$, then the sum of the angles in a triangle equals $180^\\circ$.\n\nWe know from the diagram that the right angle is $90^\\circ$. Therefore, the sum of angles $A$, $B$, and $C$ must also equal $180^\\circ$ since they form a straight line.\n\n\\[ A + B + C = 180^\\circ \\]\n\nSince $B = x^\\circ$ and $C = 90^\\circ$, we substitute these values into our equation:\n\n\\[ x^\\circ + 90"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": true,
+    "cum_rewards": [
+      0.6
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

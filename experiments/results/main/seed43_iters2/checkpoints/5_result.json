@@ -1,0 +1,99 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "The proper divisors of 12 are 1, 2, 3, 4 and 6. A proper divisor of an integer $N$ is a positive divisor of $N$ that is less than $N$. What is the sum of the proper divisors of the sum of the proper divisors of 284?",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "5_1794045652",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      -0.4177417680621147,
+      0.0
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 2,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "First, find the proper divisors of 284. \n- Proper divisors of 284 are the numbers which divide 284 without leaving a remainder and are smaller than 284.\n\nLet's list them out:\n\n1. \\( 1 \\)\n2. \\( 2 \\)\n3. \\( 4 \\)\n4. \\( 71 \\)\n5. \\( 142 \\)\n\nSum of these divisors is:  \n\\[ S = 1 + 2 + 4 + 71 + 142 \\]\n\nNow calculate this sum:\n\\[ S = 1 + 2 + 4 + 71 + 142 = 220 \\]\n\nNext, determine the proper divisors of 220:\nProper divisors of 220 are all the factors of 220 except for 220 itself.\n\nSo the"
+      }
+    ],
+    "action": "First, find the proper divisors of 284. \n- Proper divisors of 284 are the numbers which divide 284 without leaving a remainder and are smaller than 284.\n\nLet's list them out:\n\n1. \\( 1 \\)\n2. \\( 2 \\)\n3. \\( 4 \\)\n4. \\( 71 \\)\n5. \\( 142 \\)\n\nSum of these divisors is:  \n\\[ S = 1 + 2 + 4 + 71 + 142 \\]\n\nNow calculate this sum:\n\\[ S = 1 + 2 + 4 + 71 + 142 = 220 \\]\n\nNext, determine the proper divisors of 220:\nProper divisors of 220 are all the factors of 220 except for 220 itself.\n\nSo the",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.0,
+    "trajectory_key": {
+      "search_id": "5_1794045652",
+      "indices": [
+        1
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "First, find the proper divisors of 284. \n- Proper divisors of 284 are the numbers which divide 284 without leaving a remainder and are smaller than 284.\n\nLet's list them out:\n\n1. \\( 1 \\)\n2. \\( 2 \\)\n3. \\( 4 \\)\n4. \\( 71 \\)\n5. \\( 142 \\)\n\nSum of these divisors is:  \n\\[ S = 1 + 2 + 4 + 71 + 142 \\]\n\nNow calculate this sum:\n\\[ S = 1 + 2 + 4 + 71 + 142 = 220 \\]\n\nNext, determine the proper divisors of 220:\nProper divisors of 220 are all the factors of 220 except for 220 itself.\n\nSo the"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": true,
+    "cum_rewards": [
+      0.5
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  },
+  {
+    "id": 4,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "First, find the proper divisors of 284. \n- Proper divisors of 284 are the numbers which divide 284 without leaving a remainder and are smaller than 284.\n\nLet's list them out:\n\n1. \\( 1 \\)\n2. \\( 2 \\)\n3. \\( 4 \\)\n4. \\( 71 \\)\n5. \\( 142 \\)\n\nSum of these divisors is:  \n\\[ S = 1 + 2 + 4 + 71 + 142 \\]\n\nNow calculate this sum:\n\\[ S = 1 + 2 + 4 + 71 + 142 = 220 \\]\n\nNext, determine the proper divisors of 220:\nProper divisors of 220 are all the factors of 220 except for 220 itself.\n\nSo the"
+      },
+      {
+        "__type__": "ThoughtStep",
+        "action": "The sum of the proper divisors of 284 is 220. Now we can answer the question: The answer is 220."
+      }
+    ],
+    "action": "The sum of the proper divisors of 284 is 220. Now we can answer the question: The answer is 220.",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 1.0,
+    "trajectory_key": {
+      "search_id": "5_1794045652",
+      "indices": [
+        1,
+        1
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "The sum of the proper divisors of 284 is 220. Now we can answer the question: The answer is 220."
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      1.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

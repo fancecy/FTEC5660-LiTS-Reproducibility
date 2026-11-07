@@ -1,0 +1,60 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "The expression $2\\cdot 3 \\cdot 4\\cdot 5+1$ is equal to 121, since multiplication is carried out before addition. However, we can obtain values other than 121 for this expression if we are allowed to change it by inserting parentheses. For example, we can obtain 144 by writing \\[\n(2\\cdot (3\\cdot 4)) \\cdot (5+1) = 144.\n\\]In total, how many values can be obtained from the expression $2\\cdot 3\\cdot 4 \\cdot 5 + 1$ by inserting parentheses? (Note that rearranging terms is not allowed, only inserting parentheses).",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "3_1794045303",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      -0.5,
+      -0.3333333333333333
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 1,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "To find the possible values obtained from the expression \\(2 \\cdot 3 \\cdot 4 \\cdot 5 + 1\\) by inserting parentheses, we need to consider all combinations of insertion of parentheses.\n\nFirstly, let's understand the original expression without any parentheses:\n\n\\[ 2 \\cdot 3 \\cdot 4 \\cdot 5 + 1 \\]\n\nThis evaluates to \\(121\\).\n\nNext, let\u2019s insert parentheses in different ways to see what results we get:\n\n1. **Expression:**\n   \\[ (2 \\cdot (3 \\cdot 4) \\cdot 5) + 1 \\]\n   Evaluating inside the parentheses first:\n   \\[ (2 \\cdot 12) \\cdot 5 + 1 \\]\n   Then multiplying:\n   \\[ 24 \\cdot 5 + 1 \\]\n   Finally adding:\n   \\[ 120 + 1 ="
+      }
+    ],
+    "action": "To find the possible values obtained from the expression \\(2 \\cdot 3 \\cdot 4 \\cdot 5 + 1\\) by inserting parentheses, we need to consider all combinations of insertion of parentheses.\n\nFirstly, let's understand the original expression without any parentheses:\n\n\\[ 2 \\cdot 3 \\cdot 4 \\cdot 5 + 1 \\]\n\nThis evaluates to \\(121\\).\n\nNext, let\u2019s insert parentheses in different ways to see what results we get:\n\n1. **Expression:**\n   \\[ (2 \\cdot (3 \\cdot 4) \\cdot 5) + 1 \\]\n   Evaluating inside the parentheses first:\n   \\[ (2 \\cdot 12) \\cdot 5 + 1 \\]\n   Then multiplying:\n   \\[ 24 \\cdot 5 + 1 \\]\n   Finally adding:\n   \\[ 120 + 1 =",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.0,
+    "trajectory_key": {
+      "search_id": "3_1794045303",
+      "indices": [
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "To find the possible values obtained from the expression \\(2 \\cdot 3 \\cdot 4 \\cdot 5 + 1\\) by inserting parentheses, we need to consider all combinations of insertion of parentheses.\n\nFirstly, let's understand the original expression without any parentheses:\n\n\\[ 2 \\cdot 3 \\cdot 4 \\cdot 5 + 1 \\]\n\nThis evaluates to \\(121\\).\n\nNext, let\u2019s insert parentheses in different ways to see what results we get:\n\n1. **Expression:**\n   \\[ (2 \\cdot (3 \\cdot 4) \\cdot 5) + 1 \\]\n   Evaluating inside the parentheses first:\n   \\[ (2 \\cdot 12) \\cdot 5 + 1 \\]\n   Then multiplying:\n   \\[ 24 \\cdot 5 + 1 \\]\n   Finally adding:\n   \\[ 120 + 1 ="
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      0.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "What is the least positive integer multiple of 30 that can be written with only the digits 0 and 2?",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "4_1794045525",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      0.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  },
+  {
+    "id": 2,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "Consider forming numbers using only the digits 0 and 2. The smallest such number would be formed by repeating these digits as little as possible while ensuring it's divisible by 30.\n\n**Explanation**: This approach starts by identifying the simplest form of numbers composed solely of 0s and 2s and checks their divisibility by 30. Since 30 = 2 * 3 * 5, the number must end in 0 and at least two 2s, allowing for potential additional occurrences of 0s without affecting its overall divisibility by 30.\n\nTo find this specific least positive integer, I need to test combinations systematically, starting with the smallest possible configurations and incrementally increasing their length until finding one that meets all criteria."
+      }
+    ],
+    "action": "Consider forming numbers using only the digits 0 and 2. The smallest such number would be formed by repeating these digits as little as possible while ensuring it's divisible by 30.\n\n**Explanation**: This approach starts by identifying the simplest form of numbers composed solely of 0s and 2s and checks their divisibility by 30. Since 30 = 2 * 3 * 5, the number must end in 0 and at least two 2s, allowing for potential additional occurrences of 0s without affecting its overall divisibility by 30.\n\nTo find this specific least positive integer, I need to test combinations systematically, starting with the smallest possible configurations and incrementally increasing their length until finding one that meets all criteria.",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 1.0,
+    "trajectory_key": {
+      "search_id": "4_1794045525",
+      "indices": [
+        1
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Consider forming numbers using only the digits 0 and 2. The smallest such number would be formed by repeating these digits as little as possible while ensuring it's divisible by 30.\n\n**Explanation**: This approach starts by identifying the simplest form of numbers composed solely of 0s and 2s and checks their divisibility by 30. Since 30 = 2 * 3 * 5, the number must end in 0 and at least two 2s, allowing for potential additional occurrences of 0s without affecting its overall divisibility by 30.\n\nTo find this specific least positive integer, I need to test combinations systematically, starting with the smallest possible configurations and incrementally increasing their length until finding one that meets all criteria."
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      1.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "What is the smallest positive perfect cube that can be written as the sum of three consecutive integers?",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "2_1794047468",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      -0.025000000000000022
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  },
+  {
+    "id": 1,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "Let's denote the first integer in the sequence of three consecutive numbers as \\(n\\). Then the three consecutive integers would be \\(n\\), \\(n+1\\), and \\(n+2\\).\n\nThe sum of these three consecutive integers is:\n\\[ n + (n + 1) + (n + 2) = 3n + 3 \\]\n\nWe need this sum to be a perfect cube. Let’s find out what values of \\(n\\) make this true.\n\nSo now we have:\n\\[ 3n + 3 = k^3 \\]\nfor some integer \\(k\\). We want the smallest positive perfect cube here."
+      }
+    ],
+    "action": "Let's denote the first integer in the sequence of three consecutive numbers as \\(n\\). Then the three consecutive integers would be \\(n\\), \\(n+1\\), and \\(n+2\\).\n\nThe sum of these three consecutive integers is:\n\\[ n + (n + 1) + (n + 2) = 3n + 3 \\]\n\nWe need this sum to be a perfect cube. Let’s find out what values of \\(n\\) make this true.\n\nSo now we have:\n\\[ 3n + 3 = k^3 \\]\nfor some integer \\(k\\). We want the smallest positive perfect cube here.",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.95,
+    "trajectory_key": {
+      "search_id": "2_1794047468",
+      "indices": [
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Let's denote the first integer in the sequence of three consecutive numbers as \\(n\\). Then the three consecutive integers would be \\(n\\), \\(n+1\\), and \\(n+2\\).\n\nThe sum of these three consecutive integers is:\n\\[ n + (n + 1) + (n + 2) = 3n + 3 \\]\n\nWe need this sum to be a perfect cube. Let’s find out what values of \\(n\\) make this true.\n\nSo now we have:\n\\[ 3n + 3 = k^3 \\]\nfor some integer \\(k\\). We want the smallest positive perfect cube here."
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      0.95
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

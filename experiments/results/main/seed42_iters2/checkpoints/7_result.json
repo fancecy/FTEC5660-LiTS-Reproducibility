@@ -1,0 +1,60 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "Compute: $1-2+3-4+5- \\dots +99-100$.",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "7_1794043949",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      0.0,
+      0.02999999999999999
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 1,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "Observe the alternating addition and subtraction pattern. Let's group pairs of terms: $(1 - 2) + (3 - 4) + \\ldots + (99 - 100)$.\n\nNow we can answer the question: The answer is -50."
+      }
+    ],
+    "action": "Observe the alternating addition and subtraction pattern. Let's group pairs of terms: $(1 - 2) + (3 - 4) + \\ldots + (99 - 100)$.\n\nNow we can answer the question: The answer is -50.",
+    "is_continuous": false,
+    "is_terminal": true,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 1.0,
+    "trajectory_key": {
+      "search_id": "7_1794043949",
+      "indices": [
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Observe the alternating addition and subtraction pattern. Let's group pairs of terms: $(1 - 2) + (3 - 4) + \\ldots + (99 - 100)$.\n\nNow we can answer the question: The answer is -50."
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      1.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]

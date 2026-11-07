@@ -1,0 +1,45 @@
+{
+  "terminal_nodes": [
+    {
+      "id": 3,
+      "state": [
+        {
+          "__type__": "ThoughtStep",
+          "action": "To find the least positive integer multiple of 30 that can be written using only the digits 0 and 2, let's start by considering multiples of 30 in terms of their factors.\n\n**Reasoning**: Since 30 = 2 \u00d7 3 \u00d7 5, any number that is a multiple of 30 must also be divisible by 2, 3, and 5. To form such a number, it must end in 0 to ensure divisibility by 5, and it cannot have a factor of 3 because if it did, it would have to end in 9 as well (because a number ending in 2 or 8 plus another even digit would result in a multiple of 3).\n\nGiven these constraints, the smallest possible number composed solely of the digits 0 and 2 could potentially be 22 (since 2 * 22 = 44, which ends in"
+        },
+        {
+          "__type__": "ThoughtStep",
+          "action": "The least positive integer multiple of 30 that can be written with only the digits 0 and 2 is **42**."
+        }
+      ],
+      "action": "The least positive integer multiple of 30 that can be written with only the digits 0 and 2 is **42**.",
+      "is_continuous": false,
+      "is_terminal": true,
+      "bn_score": -1,
+      "state_conf": 1.0,
+      "fast_reward": 0.0,
+      "trajectory_key": {
+        "search_id": "4_1794043157",
+        "indices": [
+          1,
+          0
+        ],
+        "root_token": "q"
+      },
+      "step": {
+        "__type__": "ThoughtStep",
+        "action": "The least positive integer multiple of 30 that can be written with only the digits 0 and 2 is **42**."
+      },
+      "from_simulate": false,
+      "is_simulated": true,
+      "from_expand": true,
+      "cum_rewards": [
+        0.0
+      ],
+      "visit_count": 1,
+      "from_continuation": false
+    }
+  ],
+  "query": "What is the least positive integer multiple of 30 that can be written with only the digits 0 and 2?",
+  "query_idx": 4
+}

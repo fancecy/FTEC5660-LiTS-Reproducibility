@@ -1,0 +1,99 @@
+[
+  {
+    "id": 0,
+    "state": [],
+    "action": "The proper divisors of 12 are 1, 2, 3, 4 and 6. A proper divisor of an integer $N$ is a positive divisor of $N$ that is less than $N$. What is the sum of the proper divisors of the sum of the proper divisors of 284?",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": -1,
+    "fast_reward": -1.0,
+    "trajectory_key": {
+      "search_id": "5_1794048143",
+      "indices": [],
+      "root_token": "q"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": false,
+    "cum_rewards": [
+      -0.04999999999999999,
+      0.0
+    ],
+    "visit_count": 2,
+    "from_continuation": false
+  },
+  {
+    "id": 1,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "First, find the proper divisors of 284.  \n[To find proper divisors of a number N, iterate from 1 to sqrt(N) and add each factor if it divides N without leaving a remainder.]"
+      }
+    ],
+    "action": "First, find the proper divisors of 284.  \n[To find proper divisors of a number N, iterate from 1 to sqrt(N) and add each factor if it divides N without leaving a remainder.]",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 0.0,
+    "trajectory_key": {
+      "search_id": "5_1794048143",
+      "indices": [
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "First, find the proper divisors of 284.  \n[To find proper divisors of a number N, iterate from 1 to sqrt(N) and add each factor if it divides N without leaving a remainder.]"
+    },
+    "from_simulate": false,
+    "is_simulated": false,
+    "from_expand": true,
+    "cum_rewards": [
+      0.5
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  },
+  {
+    "id": 3,
+    "state": [
+      {
+        "__type__": "ThoughtStep",
+        "action": "First, find the proper divisors of 284.  \n[To find proper divisors of a number N, iterate from 1 to sqrt(N) and add each factor if it divides N without leaving a remainder.]"
+      },
+      {
+        "__type__": "ThoughtStep",
+        "action": "Calculate the sum of the proper divisors found in Step 1."
+      }
+    ],
+    "action": "Calculate the sum of the proper divisors found in Step 1.",
+    "is_continuous": false,
+    "is_terminal": false,
+    "bn_score": -1,
+    "state_conf": 1.0,
+    "fast_reward": 1.0,
+    "trajectory_key": {
+      "search_id": "5_1794048143",
+      "indices": [
+        0,
+        0
+      ],
+      "root_token": "q"
+    },
+    "step": {
+      "__type__": "ThoughtStep",
+      "action": "Calculate the sum of the proper divisors found in Step 1."
+    },
+    "from_simulate": false,
+    "is_simulated": true,
+    "from_expand": true,
+    "cum_rewards": [
+      1.0
+    ],
+    "visit_count": 1,
+    "from_continuation": false
+  }
+]
