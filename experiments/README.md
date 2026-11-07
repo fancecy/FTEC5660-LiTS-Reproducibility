@@ -70,6 +70,13 @@ settings. `study_status.json` identifies complete, running, interrupted or faile
 studies. `offline_evaluation.json` records every expected question, not just
 successful outputs. Do not cite a running study as a final result.
 
+The reported automatic accuracy is **strict extracted numeric-answer accuracy**,
+not semantic reasoning accuracy. A mathematically correct answer phrased without
+the expected answer marker may be unparsed and scored as incorrect. Report format
+failures separately and manually inspect examples before making claims about
+reasoning quality. This issue appeared in the corrected pilot: a terminal said
+there were 9 divisors, but did not use the extractor's expected answer phrase.
+
 The `models` and `hf` links are local workspace conveniences and are ignored by
 Git. They must be replaced by downloaded model files/cache when reproducing on
 another computer. For a fresh setup, create a Python 3.13 virtual environment at the repository root, run `python -m pip install -e . -c experiments/environment.lock.txt`, then run `python experiments/bootstrap_model.py`. The bootstrap downloads the exact model revision (approximately 3 GB). Use the same environment to run the study scripts. On macOS, `PIP_CERT=/etc/ssl/cert.pem` can be set if the Python certificate bundle is not configured. Training is not required.

@@ -39,15 +39,18 @@ def score_run(out, rows, exit_code):
                            reference=str(row["answer"]),
                            correct=bool(evaluate_math_qa(pred, str(row["answer"]))),
                            terminal_count=len(nodes), parsed_answers=answers,
+                           answer_format_failure=bool(nodes) and not answers,
                            execution_missing=not f.exists()))
     usage_path = out / "inferencelogger.log"
     usage = [json.loads(s) for s in usage_path.read_text().splitlines()
              if s.strip()] if usage_path.exists() else []
     result = dict(exit_code=exit_code, planned_examples=len(rows),
+                  metric_definition="Strict extracted numeric-answer accuracy; unparsed answers are incorrect. Not semantic reasoning accuracy.",
                   correct=sum(s["correct"] for s in scored),
                   accuracy=sum(s["correct"] for s in scored)/len(rows),
                   missing_examples=sum(s["execution_missing"] for s in scored),
                   no_terminal_examples=sum(s["terminal_count"] == 0 for s in scored),
+                  answer_format_failure_examples=sum(s["answer_format_failure"] for s in scored),
                   calls=len(usage), input_tokens=sum(s["input_tokens"] for s in usage),
                   output_tokens=sum(s["output_tokens"] for s in usage),
                   inference_seconds=sum(s["running_time"] or 0 for s in usage),
@@ -77,6 +80,8 @@ def main():
                     dataset_sha256=hashlib.sha256((ROOT / "data/math500-float.jsonl").read_bytes()).hexdigest(),
                     seeds=args.seeds, iteration_budgets=[2,4], max_steps=2,
                     termination="binary_sampling", termination_samples=1,
+                    torch_threads=4,
+                    local_commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=REPO,text=True).strip(),
                     output_selection="plurality of regex-parsed terminal answers; first tie",
                     status="running", completed_runs=[])
     state_path = dest / "study_status.json"
