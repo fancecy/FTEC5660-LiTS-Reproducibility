@@ -81,7 +81,8 @@ _EXCLUDE_FROM_SEARCH_CONFIG: Set[str] = {
     "dataset", "search_framework", "search_algorithm",
     "offset", "limit", "eval_idx",
     "verbose", "model_verbose", "print_answer_for_each_example", "override_log_result",
-    "memory_args", "check_action_sim", "trace_enabled"
+    "memory_args", "check_action_sim", "trace_enabled",
+    "device",  # Model-loading setting consumed by the CLI, not a search parameter.
 }
 
 
