@@ -2,10 +2,14 @@
 
 ## Study objective
 
-Run the original LiTS MCTS pipeline on a fixed numerical MATH500 subset using a
-free local model. Then make one isolated modification: extend answer-format
-extraction and re-score exactly the same saved generations. The experiment
-measures evaluation sensitivity, not an improvement in the model's reasoning.
+The objective is a partial reproduction of the LiTS math search workflow,
+followed by a controlled modification of answer extraction rules. The reported
+capability being tested is the documented MCTS math reasoning pipeline.
+A local extraction failure motivates the modification; that failure is an
+observation from this study rather than a result reported by the original paper.
+The two extraction rules receive identical saved generations. The experiment
+measures evaluation sensitivity and does not establish improved reasoning or
+a direct replication of the paper's benchmark accuracy.
 
 The original plan explored search budgets of 2 and 4 iterations. Exploratory
 runs exposed a concrete scoring problem: a terminal answer correctly stated

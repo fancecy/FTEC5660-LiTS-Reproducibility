@@ -1,12 +1,16 @@
-# LiTS Reproducibility and Answer Extraction
+# Partial Reproduction of LiTS Math Search
 
 FTEC5660 reproducibility work by GitHub account `fancecy`.
 
-This project runs the original LiTS MCTS math workflow with a free local model,
-then changes only answer extraction and re-scores the same saved generations.
-The study contains **10 fixed questions and 3 repeated seeds**. It measures
-evaluation sensitivity under documented laptop constraints. It does not claim
-to replicate the paper's benchmark accuracy or improve the model's reasoning.
+The objective is a **partial reproduction of the LiTS math search workflow,
+followed by a controlled modification of answer extraction rules**. The reported
+capability being tested is the authors' documented MCTS math reasoning pipeline.
+The local setup uses their code with a free model on 10 fixed questions at
+3 repeated seeds. Both scoring conditions share the same saved generations.
+The extraction failure is an observation from our local study, not a result
+reported by the original paper. The paper's 37% accuracy is a contextual reference
+under different settings. This study does not establish that benchmark result
+or improved model reasoning.
 
 ## Measured results
 
@@ -47,7 +51,7 @@ sensitivity check, not a separate held-out benchmark.
 - [Per-question results](experiments/results/main/per_question_results.csv)
 - [Recomputed report statistics](experiments/results/main/report_statistics.json)
 - [Changed-prediction audit](experiments/results/main/manual_audit.json)
-- [Downloadable submission files](https://github.com/fancecy/FTEC5660-LiTS-Reproducibility/releases/tag/v1.1)
+- [Downloadable submission files](https://github.com/fancecy/FTEC5660-LiTS-Reproducibility/releases/tag/v1.2)
 
 The PowerPoint contains internal navigation and public source links. Its notes
 contain an English talk designed for roughly 10 to 12 minutes. The course also

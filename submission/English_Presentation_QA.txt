@@ -9,8 +9,10 @@ chooses which branches to explore. The saved trees and model-call logs show
 these steps. The selected workflow is more than a single prompt and answer.
 
 2. What exactly did you reproduce?
-I reproduced a runnable, pinned math-search workflow and evaluated answers
-from its saved terminal outputs. This is a resource-limited partial reproduction.
+My objective is a partial reproduction of the LiTS math search workflow,
+followed by a controlled modification of answer extraction rules. The reported
+capability I test is the documented MCTS math reasoning pipeline. The extraction
+failure is our local observation, not a result reported by the original paper.
 The paper's 37% ReST-MCTS result uses a different model, sample and evaluation
 setup, so I do not claim a direct replication of that number.
 

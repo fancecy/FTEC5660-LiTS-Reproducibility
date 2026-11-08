@@ -1,36 +1,36 @@
-SLIDE 1: Reproducing LiTS
+SLIDE 1: Partial reproduction of LiTS
 Suggested time: 35 seconds.
-This presentation explains a partial reproduction of LiTS using a free local model on a laptop. I ran ten fixed math questions at three seeds, then compared two answer-extraction rules on the same saved generations. Mean extracted-answer accuracy changed from 16.7 percent to 30.0 percent. I focus on what this scoring change means, how the evidence supports it, and why it does not establish improved model reasoning.
+My objective is a partial reproduction of the LiTS math search workflow, followed by a controlled modification of answer extraction rules. The reported capability I test is the authors' MCTS workflow for math reasoning, using their implementation. I run ten fixed questions with a local model at three seeds. I then score identical saved outputs with baseline and modified extraction. Mean extracted-answer accuracy changes from 16.7 percent to 30.0 percent. This measures evaluator sensitivity, while generation stays fixed.
 
 SLIDE 2: Presentation map
 Suggested time: 25 seconds.
 The underlined items are navigation links. I will first explain the project and scope, then the controlled evaluation change. The evidence section contains the full pilot conclusion and the two scoring outcomes. The final section covers limitations and the links needed to reproduce the work. The Contents link on each slide returns here.
 
-SLIDE 3: LiTS and the selected workflow
+SLIDE 3: LiTS math search workflow
 Suggested time: 55 seconds.
-LiTS is a framework for multi-step reasoning using tree search. In the selected workflow, the policy proposes reasoning steps, the transition updates the reasoning state, and the reward component scores candidate steps. Monte Carlo tree search, or MCTS, decides which branches to explore. I run the authors' pipeline rather than reimplementing search. The reproduction target is a working math-search workflow and an auditable scoring behavior under documented local conditions.
+The original project documents MCTS for math reasoning on MATH500. That reported workflow capability is the reproduction target. I partially reproduce it using the authors' policy, transition and reward components under documented local settings. The policy proposes reasoning steps, the transition updates the state, and the reward component scores candidates. Monte Carlo tree search selects branches. Saved trees and terminal outputs show the multi-step process. The controlled modification concerns answer extraction after generation.
 
-SLIDE 4: Partial reproduction scope
+SLIDE 4: Partial reproduction of math search
 Suggested time: 60 seconds.
-The paper reports 37 percent for ReST-MCTS on 100 numerical MATH500 examples using Llama3-8B-Instruct. That number is a contextual reference. My local run uses Qwen2.5-1.5B-Instruct and a much smaller fixed subset, with a reduced search budget and a different terminal-voting adapter. These differences prevent a direct accuracy comparison. The goal is to verify a runnable workflow and explain a measurable evaluation issue.
+The reproduction target is the documented LiTS math search workflow. The paper's 37 percent ReST-MCTS accuracy is a reference result. My local model, ten-question subset, reduced search budget and deterministic terminal-selection adapter differ from that experiment. I therefore report a partial reproduction and disclose these changes. They are common setup conditions for both extraction rules. The one measured intervention is the answer extraction modification, evaluated on identical saved outputs.
 
-SLIDE 5: One generation set, two extraction rules
+SLIDE 5: Controlled change to answer extraction
 Suggested time: 65 seconds.
 The formal study fixes the generation settings and changes only answer extraction during scoring. It uses the first ten source-order questions at three run-level seeds: 42, 43 and 44. Each saved terminal set receives a baseline score and a modified score. This paired design removes generation differences between scoring conditions. Both conditions use the same deterministic plurality selection and the authors' numeric correctness checker. The latest upstream CLI instead uses LLM voting through native tool calls. I disclose this adapter and do not claim that it reproduces the paper's full evaluator.
 
-SLIDE 6: The isolated evaluation modification
+SLIDE 6: Answer extraction rules
 Suggested time: 60 seconds.
 The modified extractor first preserves any baseline answer. If that fails, it accepts a numeric boxed expression or a clearly introduced final conclusion. An explicit count statement can restate the object being counted, as in divisors of 196. Ambiguous numerical clauses remain unparsed. The extractor never receives the reference answer and never calls a model. Every changed prediction receives a recorded case-by-case audit because a rule extension can also recover an incorrect number. The measured change concerns scoring and parsing coverage, not improved model reasoning.
 
-SLIDE 7: A correct conclusion escaped the baseline extractor
+SLIDE 7: Observed answer extraction failure
 Suggested time: 65 seconds.
-This is an exploratory case, not the final benchmark. The question asks how many positive whole-number divisors 196 has. Its prime factorization is two squared times seven squared, so the divisor count is three times three, or nine. One saved terminal reaches that answer. However, it ends with a natural-language count statement instead of the phrase expected by the baseline extractor. The baseline therefore produces an empty prediction. This case motivated the modification, so I disclose that the development question also appears in the formal subset.
+This failure was observed during our local exploratory run. It is our motivation for the modification, not a failure claim that the original paper reported. The question asks for the number of positive divisors of 196. Since 196 is two squared times seven squared, the answer is nine. The terminal explicitly states nine, but the baseline extraction helper returns an empty value for this wording. The development question also appears in the formal subset, and the report includes a sensitivity check excluding it.
 
 SLIDE 8: Pilot result on the same saved outputs
 Suggested time: 60 seconds.
 For this one question, the baseline produces an empty prediction and records zero correct answers. The extended rule extracts nine and records one correct answer. Both outcomes use exactly the same saved model output. The result validates the scoring issue on this case, but it does not estimate benchmark accuracy or prove that every rule extension is safe. The repeated formal study measures changed predictions and includes a case audit of all of them.
 
-SLIDE 9: Measured results on fixed questions
+SLIDE 9: Effect of the controlled modification
 Suggested time: 75 seconds.
 All three seeded runs are complete. Mean baseline extracted-answer accuracy is 16.7 percent, with a sample standard deviation of 15.3 percentage points. Modified extracted-answer accuracy is 30.0 percent, with a sample standard deviation of 10.0 points. The paired mean change is 13.3 percentage points. Both scorers use the same saved generations. These are ten unique questions, repeated at three seeds. The audit covers every changed prediction. For example, a recovered geometry answer of 56 remains incorrect against the reference 28. Another seeded run gives the correct cylinder height of 5 without the baseline marker, which the extension recovers. These results concern scoring sensitivity under the adapted local setup.
 
@@ -39,9 +39,9 @@ Suggested time: 65 seconds.
 Several limits affect interpretation. First, the model and search budget differ from the paper. Second, the evaluator uses deterministic terminal selection instead of upstream native-tool LLM voting. Third, the sample contains ten unique questions, and the pilot question helped develop the rule. Fourth, run-level seeds do not guarantee identical outputs on other hardware or package versions. Finally, an extraction change can raise or lower measured accuracy without changing the underlying reasoning. All missing or unparsed outputs remain in the denominator. The report separately records parser failures, empty terminal sets and execution failures.
 Excluding the development question leaves nine unique questions and 27 executions. The baseline records 5 correct and the modified scorer records 7 correct. This descriptive sensitivity check does not create an independent held-out benchmark.
 
-SLIDE 11: Reproduction and recording walkthrough
+SLIDE 11: Reproduction scope and evidence
 Suggested time: 70 seconds.
-For the recorded presentation, I will use a short prepared walkthrough. I will first open the paper and identify the reference workflow, then show the fixed protocol and exact source version. Next, I will show the saved terminal conclusion and compare the two extracted predictions. Finally, I will open the completed study summary and audit a changed example. This avoids spending recording time waiting for model generation. The report and repository include the same question identifiers, configuration, commits and evaluation outputs shown here. The submission repository contains the exact scripts, measured outputs, report and slides shown here.
+The evidence follows the same objective as the report: partial reproduction of the LiTS math search workflow, followed by a controlled modification of answer extraction rules. First, the paper and pinned README establish the reported math search capability. Second, saved configurations and trees show our adapted local execution. Third, two extractors score identical outputs. Finally, the measured summary and all changed cases explain the impact and limitations. The local study does not establish the paper's 37 percent benchmark result or improved model reasoning.
 
 SLIDE 12: Sources and evidence index
 Suggested time: 40 seconds.

@@ -5,12 +5,13 @@
   "extractor_sha256": "d89f1af2fa00ddea8a6a009304272f13e6382eeca2fea6c81c507f1768b2c007",
   "dataset_sha256": "d0740662f634491425223cd1c8442efa86403a26b06799c954c5061cef6cdd8c",
   "files": {
-    "LiTS_Reproducibility_Report.pdf": "c6e395d5baf15c16bc40876986199aa8ecf8642ec5242b9903d3e4459e1d8cbc",
-    "LiTS_Reproducibility_Report.docx": "1dfcd6bf3bd3ac9164d9c4199582cf57bfaab0c7feb90259137885ef3cbd49a0",
-    "LiTS_Reproducibility_Interactive.pptx": "e4a283256ac90c9bf6fa8dd37ccd96c69104d4e32ce068cc1566cc11b9be3da9",
-    "English_Presentation_Script.txt": "3f6630f97a52c3b0b59acecc7776451fb113d0ed5beedaf8378fd8d10c0807e1",
-    "English_Presentation_QA.txt": "b87dd4f483e1932c13802c738b4a6cfe1ddec5460815fe48567f19e2da451b4a"
+    "LiTS_Reproducibility_Report.pdf": "6ffd329a00d65a6a15250973bdb53cc2d45cb56f298fe0df54495d38bf854978",
+    "LiTS_Reproducibility_Report.docx": "9190edb431fab8eb0cceb8a35a8c4e6f235e7f1b09423513e62cf515bb47ea48",
+    "LiTS_Reproducibility_Interactive.pptx": "4be035a34d74e45dd8c1a903ca2005acdcb7da0d329a714afe9c524ccb3f554e",
+    "English_Presentation_Script.txt": "aa15fd97f14aaca3d3aaa2aa28e711a46411aa7f1ebd3cb50536e6519b153df3",
+    "English_Presentation_QA.txt": "050f616fc57d0c9a084bf205b1334ccc6e3517cf8db257cfe5c3c8bb8c84ae24"
   },
-  "report_revision": "2026-11-08 assignment structure",
-  "report_pages": 8
+  "report_revision": "2026-11-08 unified partial reproduction and controlled extraction objective",
+  "report_pages": 8,
+  "presentation_slides": 12
 }
