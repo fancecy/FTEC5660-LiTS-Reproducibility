@@ -47,7 +47,7 @@ sensitivity check, not a separate held-out benchmark.
 - [Per-question results](experiments/results/main/per_question_results.csv)
 - [Recomputed report statistics](experiments/results/main/report_statistics.json)
 - [Changed-prediction audit](experiments/results/main/manual_audit.json)
-- [Downloadable submission files](https://github.com/fancecy/FTEC5660-LiTS-Reproducibility/releases/tag/v1.0)
+- [Downloadable submission files](https://github.com/fancecy/FTEC5660-LiTS-Reproducibility/releases/tag/v1.1)
 
 The PowerPoint contains internal navigation and public source links. Its notes
 contain an English talk designed for roughly 10 to 12 minutes. The course also
