@@ -44,16 +44,16 @@ sensitivity check, not a separate held-out benchmark.
 
 - [English report PDF](submission/LiTS_Reproducibility_Report.pdf)
 - [Editable report](submission/LiTS_Reproducibility_Report.docx)
-- [Interactive English PowerPoint](submission/LiTS_Reproducibility_Interactive.pptx)
+- [Editable CUHK-style English PowerPoint](submission/LiTS_Reproducibility_CUHK_Editable.pptx)
 - [English presentation script](submission/English_Presentation_Script.txt)
 - [Presentation questions and answers](submission/English_Presentation_QA.txt)
 - [Completed measurements](experiments/results/main/study_status.json)
 - [Per-question results](experiments/results/main/per_question_results.csv)
 - [Recomputed report statistics](experiments/results/main/report_statistics.json)
 - [Changed-prediction audit](experiments/results/main/manual_audit.json)
-- [Downloadable submission files](https://github.com/fancecy/FTEC5660-LiTS-Reproducibility/releases/tag/v1.2)
+- [Downloadable submission files](https://github.com/fancecy/FTEC5660-LiTS-Reproducibility/releases/tag/v1.3)
 
-The PowerPoint contains internal navigation and public source links. Its notes
+The PowerPoint uses CUHK purple and gold styling with the official website logo. Text, tables and the results chart remain editable. It contains internal navigation and public source links. Its notes
 contain an English talk designed for roughly 10 to 12 minutes. The course also
 requires a personal Zoom recording of at most 15 minutes. The slides and script
 support that recording; they do not replace its submitted recording link.
