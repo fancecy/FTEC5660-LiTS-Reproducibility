@@ -53,7 +53,7 @@ sensitivity check, not a separate held-out benchmark.
 - [Changed-prediction audit](experiments/results/main/manual_audit.json)
 - [Latest submission files](submission/)
 
-The latest PowerPoint contains 18 slides, uses Times New Roman with a simple blue-gray palette, and follows three sections: paper and background, experimental process, and experimental results. The report and PowerPoint files were replaced with the supplied final versions on 12 November 2026. Both PowerPoint filenames contain the same latest deck so existing links remain valid. The separate English script and Q&A remain earlier supplementary materials and may not match the revised slide order.
+The latest PowerPoint contains 18 slides, uses Times New Roman with a simple blue-gray palette, and follows three sections: paper and background, experimental process, and experimental results. The report and PowerPoint files were replaced with the supplied final versions on 12 November 2026. Both PowerPoint filenames contain the same latest deck so existing links remain valid. The English presentation script follows all 18 slides in order. The separate Q&A remains supplementary preparation material.
 
 The course also requires a personal Zoom recording of at most 15 minutes. The slides and report do not replace its submitted recording link.
 

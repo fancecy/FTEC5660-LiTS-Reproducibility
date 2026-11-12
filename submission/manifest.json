@@ -8,12 +8,13 @@
     "LiTS_Reproducibility_Report.pdf": "01c8b0654899ff2a36ca9e3843eb0c35f1aa7cc91f6b22eca0ce1acd6360530c",
     "LiTS_Reproducibility_Report.docx": "764b08da01e2ab0dfede9cba85317871c76e8eef15c4c2a66c8339dbc1199b68",
     "LiTS_Reproducibility_Interactive.pptx": "835f14a393d6b6e8b7131ed7aa3d0b3cec47dada18a4a6103406c55952040482",
-    "English_Presentation_Script.txt": "aa15fd97f14aaca3d3aaa2aa28e711a46411aa7f1ebd3cb50536e6519b153df3",
+    "English_Presentation_Script.txt": "7b60d0b42bae1f47f610efb33cc165e36fdac30715857008697c1b50de69d34b",
     "English_Presentation_QA.txt": "050f616fc57d0c9a084bf205b1334ccc6e3517cf8db257cfe5c3c8bb8c84ae24",
     "LiTS_Reproducibility_CUHK_Editable.pptx": "835f14a393d6b6e8b7131ed7aa3d0b3cec47dada18a4a6103406c55952040482"
   },
   "report_revision": "2026-11-12 supplied final report files; Yufan GUO 1155265986",
   "report_pages": 8,
   "presentation_slides": 18,
-  "presentation_style": "Times New Roman, simple blue-gray palette; three sections: paper and background, experimental process, experimental results"
+  "presentation_style": "Times New Roman, simple blue-gray palette; three sections: paper and background, experimental process, experimental results",
+  "presentation_script": "English narration aligned with the final 18-slide deck"
 }
