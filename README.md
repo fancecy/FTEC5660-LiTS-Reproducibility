@@ -1,6 +1,6 @@
 # Partial Reproduction of LiTS Math Search
 
-FTEC5660 reproducibility work by GitHub account `fancecy`.
+FTEC5660 reproducibility work by Yufan GUO (1155265986), GitHub account `fancecy`.
 
 The objective is a **partial reproduction of the LiTS math search workflow,
 followed by a controlled modification of answer extraction rules**. The reported
@@ -44,19 +44,18 @@ sensitivity check, not a separate held-out benchmark.
 
 - [English report PDF](submission/LiTS_Reproducibility_Report.pdf)
 - [Editable report](submission/LiTS_Reproducibility_Report.docx)
-- [Editable CUHK-style English PowerPoint](submission/LiTS_Reproducibility_CUHK_Editable.pptx)
+- [Latest editable English PowerPoint](submission/LiTS_Reproducibility_CUHK_Editable.pptx)
 - [English presentation script](submission/English_Presentation_Script.txt)
 - [Presentation questions and answers](submission/English_Presentation_QA.txt)
 - [Completed measurements](experiments/results/main/study_status.json)
 - [Per-question results](experiments/results/main/per_question_results.csv)
 - [Recomputed report statistics](experiments/results/main/report_statistics.json)
 - [Changed-prediction audit](experiments/results/main/manual_audit.json)
-- [Downloadable submission files](https://github.com/fancecy/FTEC5660-LiTS-Reproducibility/releases/tag/v1.3)
+- [Latest submission files](submission/)
 
-The PowerPoint uses CUHK purple and gold styling with the official website logo. Text, tables and the results chart remain editable. It contains internal navigation and public source links. Its notes
-contain an English talk designed for roughly 10 to 12 minutes. The course also
-requires a personal Zoom recording of at most 15 minutes. The slides and script
-support that recording; they do not replace its submitted recording link.
+The latest PowerPoint contains 18 slides, uses Times New Roman with a simple blue-gray palette, and follows three sections: paper and background, experimental process, and experimental results. The report and PowerPoint files were replaced with the supplied final versions on 12 November 2026. Both PowerPoint filenames contain the same latest deck so existing links remain valid. The separate English script and Q&A remain earlier supplementary materials and may not match the revised slide order.
+
+The course also requires a personal Zoom recording of at most 15 minutes. The slides and report do not replace its submitted recording link.
 
 ## Fixed setup and limits
 

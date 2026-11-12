@@ -5,15 +5,15 @@
   "extractor_sha256": "d89f1af2fa00ddea8a6a009304272f13e6382eeca2fea6c81c507f1768b2c007",
   "dataset_sha256": "d0740662f634491425223cd1c8442efa86403a26b06799c954c5061cef6cdd8c",
   "files": {
-    "LiTS_Reproducibility_Report.pdf": "6ffd329a00d65a6a15250973bdb53cc2d45cb56f298fe0df54495d38bf854978",
-    "LiTS_Reproducibility_Report.docx": "9190edb431fab8eb0cceb8a35a8c4e6f235e7f1b09423513e62cf515bb47ea48",
-    "LiTS_Reproducibility_Interactive.pptx": "a24069b2816e46a9eaf4cd6a99bbe2d82f96a93f56b98ad9ec02f375c2ad63c2",
+    "LiTS_Reproducibility_Report.pdf": "01c8b0654899ff2a36ca9e3843eb0c35f1aa7cc91f6b22eca0ce1acd6360530c",
+    "LiTS_Reproducibility_Report.docx": "764b08da01e2ab0dfede9cba85317871c76e8eef15c4c2a66c8339dbc1199b68",
+    "LiTS_Reproducibility_Interactive.pptx": "835f14a393d6b6e8b7131ed7aa3d0b3cec47dada18a4a6103406c55952040482",
     "English_Presentation_Script.txt": "aa15fd97f14aaca3d3aaa2aa28e711a46411aa7f1ebd3cb50536e6519b153df3",
     "English_Presentation_QA.txt": "050f616fc57d0c9a084bf205b1334ccc6e3517cf8db257cfe5c3c8bb8c84ae24",
-    "LiTS_Reproducibility_CUHK_Editable.pptx": "a24069b2816e46a9eaf4cd6a99bbe2d82f96a93f56b98ad9ec02f375c2ad63c2"
+    "LiTS_Reproducibility_CUHK_Editable.pptx": "835f14a393d6b6e8b7131ed7aa3d0b3cec47dada18a4a6103406c55952040482"
   },
-  "report_revision": "2026-11-08 unified partial reproduction and controlled extraction objective",
+  "report_revision": "2026-11-12 supplied final report files; Yufan GUO 1155265986",
   "report_pages": 8,
-  "presentation_slides": 12,
-  "presentation_style": "CUHK purple and gold with official website logo; native editable text tables and chart"
+  "presentation_slides": 18,
+  "presentation_style": "Times New Roman, simple blue-gray palette; three sections: paper and background, experimental process, experimental results"
 }
