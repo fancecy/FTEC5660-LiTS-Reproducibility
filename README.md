@@ -80,22 +80,42 @@ rendered images, which is also an input-representation limitation.
 
 ## Run the experiment
 
-The tested platform is macOS with Python 3.13. Start from this repository root.
+The tested platform is macOS (Apple Silicon) with Python 3.13. Start from this repository root. A new virtual environment is required; the validation below did not reuse an existing environment or model cache.
 
 ```bash
 python3.13 -m venv .venv
 source .venv/bin/activate
+# Use the macOS system CA bundle before the first package installation.
+export PIP_CERT=/etc/ssl/cert.pem
 python -m pip install -e . -c experiments/environment.lock.txt
-python experiments/bootstrap_model.py
+python -m pip check
 python experiments/test_local_study.py
-python experiments/run_study.py --limit 10 --seeds 42 43 44 --name reproduction
-python experiments/finalize_study.py experiments/results/reproduction
+python experiments/bootstrap_model.py
 ```
 
-On macOS, if Python's certificate bundle is not configured, set
-`PIP_CERT=/etc/ssl/cert.pem` for installation. Verification remains enabled.
-Model download is about 3 GB. CPU generation can take hours. Local caches and
-model weights are excluded from Git. Use a new study name to avoid mixing runs.
+Certificate verification stays enabled. The `PIP_CERT` line addresses the certificate error observed with a fresh macOS Python installation. This command sequence is for macOS; on other systems use your valid system CA bundle if required. Package installation also installs IPython through the declared widget dependency.
+
+Before spending hours on the full study, run one real search and finalize its saved outputs:
+
+```bash
+python experiments/run_study.py --limit 1 --seeds 42 --name install_check
+python experiments/finalize_study.py experiments/results/install_check
+python experiments/analyze_results.py experiments/results/install_check
+```
+
+Use a new `--name` if that directory already exists. Check `study_status.json` for `status: complete`, `evaluation_finalized: true`, one completed execution and no missing examples. Correctness on one question is not an installation pass criterion. `changed_predictions_for_review.json` contains cases to audit; finalization leaves manual review pending until that review is performed.
+
+Then run the full reproduction separately:
+
+```bash
+python experiments/run_study.py --limit 10 --seeds 42 43 44 --name reproduction
+python experiments/finalize_study.py experiments/results/reproduction
+python experiments/analyze_results.py experiments/results/reproduction
+```
+
+The current model bootstrap downloads the pinned snapshot, including both released weight formats (about 6 GB). Allow additional space for the environment and package downloads. CPU generation can take hours. Model weights, local caches and new runtime results are excluded from Git. Use a new study name to avoid mixing runs. The original submitted measurements remain in `experiments/results/main`.
+
+Fresh-install validation on 12 November 2026 passed dependency checks, all four study tests, model bootstrap, one real two-iteration CPU search, finalization and statistics analysis. See the [validation record](experiments/validation/fresh_install_20261112.json). This checks the installation and end-to-end path; it does not rerun the full 30-execution benchmark.
 
 To inspect the submitted result without generating again:
 

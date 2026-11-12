@@ -27,7 +27,7 @@ only the two extraction rules. Pilot findings are not final benchmark results.
   with Llama3-8B-Instruct. This figure is contextual and is not directly
   comparable with this study's model, subset, settings, and scoring adapter.
 - Local model: Qwen/Qwen2.5-1.5B-Instruct, revision
-  `989aa7980e4cf806f80c7fef2b1adb7bc71aa306` (about 3 GB).
+  `989aa7980e4cf806f80c7fef2b1adb7bc71aa306` (about 3 GB per weight format; the current bootstrap downloads both formats, about 6 GB).
 - Dataset: xinzhel/math500-float, revision
   `d27dc61b1123c2fdc4eea855c802be87dfa9d536`, 316 numerical rows.
 - Hardware: M4 MacBook Air, 16 GB memory. The execution environment cannot

@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-12",
+  "base_commit": "9a24c5b68bd31ad1175e12c043d6d03c14acca62",
+  "scope": "Fresh virtual environment and empty model cache, one real two-iteration MCTS task, finalization and saved-result analysis; not a new full 30-execution benchmark.",
+  "platform": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.13.5",
+    "torch": "2.15.0",
+    "transformers": "4.51.3",
+    "device": "cpu",
+    "torch_threads": 4
+  },
+  "installation": {
+    "command": "PIP_CERT=/etc/ssl/cert.pem python -m pip install -e . -c experiments/environment.lock.txt",
+    "exit_code": 0,
+    "pip_check": "No broken requirements found.",
+    "certificate_verification": true,
+    "model_bootstrap_exit_code": 0,
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  },
+  "checks": {
+    "command": "python experiments/test_local_study.py",
+    "tests_run": 4,
+    "passed": 4
+  },
+  "search": {
+    "command": "python experiments/run_study.py --limit 1 --seeds 42 --name fresh_install_check_20261112",
+    "status": "complete",
+    "seed": 42,
+    "n_iters": 2,
+    "exit_code": 0,
+    "planned_examples": 1,
+    "correct": 0,
+    "accuracy": 0.0,
+    "extended_accuracy": 1.0,
+    "changed_predictions": 1,
+    "missing_examples": 0,
+    "no_terminal_examples": 0,
+    "calls": 13,
+    "input_tokens": 3910,
+    "output_tokens": 573,
+    "elapsed_seconds": 177.00390320798033
+  },
+  "postprocessing": {
+    "finalize_exit_code": 0,
+    "evaluation_finalized": true,
+    "analyze_exit_code": 0,
+    "manual_review_status": "pending",
+    "original_main_statistics_unchanged": true
+  },
+  "example_evidence": [
+    {
+      "id": "test/number_theory/572.json",
+      "prediction": "",
+      "extended_prediction": "9",
+      "reference": "9",
+      "correct": false,
+      "extended_correct": true,
+      "terminal_count": 2
+    }
+  ],
+  "interpretation": "An empty baseline prediction is a scoring outcome, not a pipeline failure. New results are an installation check only and do not replace the submitted main experiment."
+}
